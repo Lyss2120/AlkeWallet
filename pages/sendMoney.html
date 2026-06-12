@@ -7,33 +7,37 @@
     <title>Send Money</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
 </head>
 
 <body>
-    <div class="container  align-items-center d-flex flex-column">
+    <main class="container container p-5 mt-5 rounded ">
 
-        <section class="container  p-5 bg-light m-5 w-50 send-money-section">
-            <h1 class="text-center">
-                Enviar Dinero
-            </h1>
+        <section class=" ">
+
             <!-- formulario permite seleccionar o agregar contactos para realizar la transferencia -->
             <form action="" class="form-group">
-                <label for="recipient">Buscar en la agenda de transferencias</label>
-                <!-- agregar nuevo contacto -->
-                <input type="text" class="form-control" id="recipient" placeholder="Buscar contacto">
-                <button type="button" class="btn btn-primary">Agregar Nuevo contacto</button>
+
+                <legend><h1 class="">Enviar Dinero</h1></legend>
+
+                <div class="form-group">
+                    <label for="recipient">Buscar en la agenda de transferencias</label>
+                    <!-- agregar nuevo contacto -->
+                    <input type="text" class="form-control" id="recipient" placeholder="Buscar contacto">
+                    <button type="button" class="btn btn-primary mt-3">Agregar Nuevo contacto</button>
+                </div>
+
                 <!-- seleccionar contacto existente -->
-                <h2 class="text-center mt-5">Contactos</h2>
+                <h2 class="mt-3">Contactos</h2>
                 <ul class="list-group">
                     <li class="list-group-item">John Doe - CBU 123456789 - Alias John Doe - Banco ABC Bank</li>
                     <li class="list-group-item">Jane Smith - CBU 987654321 - Alias Jane Smith - Banco XYZ Bank</li>
                 </ul>
+                
                 <!-- boton submit para transferir a contacto -->
                 <button type="submit" class="btn btn-primary w-100">Enviar dinero</button>
                 <!-- boton para volver al menu -->
                 <button type="button" class="btn btn-secondary w-100 ">
-                    <a href="/pages/menu.html"  class="text-light  text-decoration-none">Volver al Menu</a>
+                    <a href="/pages/menu.html" class="text-light  text-decoration-none">Volver al Menu</a>
                 </button>
             </form>
 
@@ -42,7 +46,7 @@
 
 
 
-    </div>
+    </main>
 
     <script src=" assets/js/script.js"></script>
 </body>
