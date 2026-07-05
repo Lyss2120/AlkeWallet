@@ -10,3 +10,868 @@ img:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
+/* Contenedor opcional para asegurar que los blobs no creen barras de desplazamiento */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  z-index: 0;
+  min-height: 100vh;
+  /* background-color: #d8e0ff; */
+  background-image: var(--bg-light-custom); 
+  /* background-image: url('../img/10864261.jpg'); */
+  /* background-image: url("../img/3d-shapes-glowing-with-bright-holographic-colors.jpg"); */
+  background-size:140%;
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+    /* animation: moveBackground 90s infinite alternate; */
+
+  backdrop-filter: blur(2px);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mask-image: linear-gradient(to bottom, transparent, black);
+    overflow-x: hidden;}
+    &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mask-image: linear-gradient(to bottom, transparent, black);
+    background: var(--bg-light-before); }
+  /* } 
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mask-image: linear-gradient(to bottom, transparent, black);
+    background: var(--bg-light-after);
+  } */
+  
+}
+:root {
+  --bg-dark-custom: linear-gradient(to left, #46aae8, #541d84) !important;
+  --bg-dark-before: linear-gradient(to top, #000000, #541d84);
+  --text-dark: hsl(257, 55%, 76%);
+  --text-secondary-dark: hsl(256, 100%, 93%);
+  --accent-dark: #00b3ff;
+  --bg-secondary-dark: #00aaff;
+  --bg-tertiary-dark: #790cff;
+
+  --bg-light-custom: linear-gradient(
+    to left,
+    #b1adfca9,
+    rgba(238, 238, 253, 0.864)
+  ) !important;
+  --bg-light-before: linear-gradient(45deg, #790cff81, #00c3ff59);
+  --blob-blue-dark: rgba(24, 106, 168, 0.7);
+  --blob-purple-light: rgba(211, 68, 68, 0.616);
+
+  /* Corregido: Nombres únicos para gradientes */
+  --bg-gradient-purple: conic-gradient(45deg, #790cff, #933de3);
+  --bg-gradient-blue: conic-gradient(45deg, #0caaff, #0dbce4);
+
+  --text-light: #253357;
+  --text-secondary-light: #0f0000;
+  --accent-light: #5200d7;
+  --bg-secondary-light: #790cff;
+  --bg-tertiary-light: #00eaff;
+  --blob-blue-light: rgba(
+    0,
+    191,
+    255,
+    0
+  ); /* Corregido a un color turquesa/azul visible */
+
+  --blob-light-shadow:
+    inset 10px 10px 10px rgba(0, 0, 0, 0.05),
+    15px 25px 10px rgba(0, 0, 0, 0 0.05), 15px 25px 10px rgba(0, 0, 0, 0 0.05),
+    inset -10px -01px 15px rgba(3, 55, 64, 0.247),
+    5px 5px 10px rgba(255, 255, 255, 0.09);
+
+  --blob-purple-shadow:
+    inset 10px 10px 10px rgba(151, 74, 252, 0.26), 0 0 180px #0000001c,
+    15px 25px 10px rgba(128, 0, 255, 0.05),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.708),
+    15px 20px 20px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+  backdrop-filter: blur(5px);
+    border-bottom: 1px solid #706d6d72 !important;
+
+}
+
+.hero-section {
+  min-height: 80vh;
+  max-height: 100vh;
+}
+
+.hero-heading {
+  font-size: 3.5rem !important;
+  font-weight: semibold !important;
+  color: var(--text-light);
+}
+.footer-section {
+  min-height: 20vh;
+  background: #39046a5e;
+  backdrop-filter: blur(5px);
+}
+
+/* .bg-light {
+  background-image: var(--bg-light-custom) !important;
+} */
+.bg-par {
+  background: rgba(152, 135, 251, 0.21);
+}
+
+.bg-impar {
+  background: rgba(7, 194, 246, 0.21);
+}
+@keyframes bg-animation {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.bg-impar img,
+.bg-par img {
+  width: 100px;
+}
+
+.section {
+  padding: 7rem;
+  min-height: 100vh;
+  z-index: -2;
+}
+
+.container-blob {
+  min-width: 100vw;
+  transition: all 0.5s ease;
+  color: #ffffff79;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- CLASES INDIVIDUALES PARA LOS BLOBS --- */
+
+/* Aplicamos las variables correctas y dimensiones individuales */
+.div1 {
+  position: absolute;
+  z-index: -1;
+  width: 280px;
+  height: 250px;
+  top: 30vh;
+  left: 95vw;
+  border-radius: 50%;
+  background-color: var(--blob-blue-light);
+  box-shadow: var(--blob-purple-shadow);
+  transform: rotate(70deg);
+  /* Animaciones simultáneas: cambio de forma y flotación ligera */
+  animation:
+    rutaGotaUno 300s ease-in-out infinite alternate,
+    mutarFormaExtrema 25s ease-in-out infinite alternate,
+    flotar 40s ease-in-out infinite alternate;
+}
+
+.div2 {
+  top: 75%;
+  left: 15%;
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  z-index: 0;
+  background-color: var(--blob-blue-light);
+  border-radius: 50%;
+  box-shadow:
+    inset 10px 10px 10px rgba(151, 74, 252, 0.26),
+    0 0 180px #0000001c,
+    15px 25px 10px rgba(128, 0, 255, 0.05),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.708),
+    15px 20px 20px rgba(0, 0, 0, 0.05);
+
+  animation:
+    rutaGotaUno 200s ease-in-out infinite alternate,
+    mutarForma 25s ease-in-out infinite alternate,
+    flotar 40s ease-in-out infinite alternate;
+}
+/* .div2 {
+  position: absolute;
+  z-index: 0;
+  width: 260px;
+  height: 280px;
+  background-color: var(--blob-blue-light);
+  box-shadow: var(--blob-light-shadow);
+  border-radius: 50%;
+  top: 50vh;
+  left: 55vw;
+  transform: rotate(30deg); */
+
+/* Animaciones simultáneas: cambio de forma y flotación ligera */
+/* Se redujo el tiempo (más rápida) y se usa 'linear' para un flujo continuo sin pausas */
+/* animation:
+    rutaGotaDos 300s ease-in-out infinite alternate,
+    mutarFormaExtrema 45s linear infinite,
+    flotar2 40s ease-in-out infinite alternate;
+} */
+.div3 {
+  height: 150px;
+  width: 150px;
+  left: 15px;
+  top: 15px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow:
+    inset 10px 10px 10px rgba(151, 74, 252, 0.26),
+    0 0 180px #0000001c,
+    15px 25px 10px rgba(128, 0, 255, 0.05),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.708),
+    15px 20px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(3px);
+  animation:
+    rutaGotaTres 20s ease-in-out infinite alternate,
+    mutarFormaExtrema 25s ease-in-out infinite,
+    flotar 40s ease-in-out infinite;
+}
+
+.div4 {
+  position: absolute;
+  z-index: -1;
+  width: 280px;
+  height: 280px;
+  background-color: var(--bg-secondary-light);
+  box-shadow: var(--blob-purple-shadow);
+  top: 10;
+  left: 20;
+  right: 25;
+  bottom: 10;
+  border-radius: 50%;
+  animation: blob-movimiento 15s infinite alternate-reverse ease-in-out;
+}
+
+/* CORREGIDO: Pseudo-elementos aplicados a CADA uno de los contenedores */
+.div1::before,
+.div2::before,
+.div3::before,
+.div4::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 25%;
+  width: 28px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: rotate(-30deg);
+  filter: blur(0.7px);
+}
+
+.div1::after,
+.div2::after,
+.div3::after,
+.div4::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  width: 12px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(0.7px);
+}
+
+.glass {
+  color: #00aaff;
+  border-top: 1px solid #f9f9f97b !important;
+  border-right: 1px solid #f4ebf57c !important;
+  border-bottom: 1px solid #706d6d72 !important;
+  border-left: 1px solid #56535389 !important;
+  backdrop-filter: blur(5px) !important;
+  background: #2c2c2c1c !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  padding-bottom: 35px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.137),
+    rgba(255, 255, 255, 0.384)
+  ) !important;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 200%;
+  }
+}
+
+/* NUEVA ANIMACIÓN: Mueve la gota por todo el espacio disponible */
+@keyframes recorridoSeccion {
+  0% {
+    top: 15%;
+    left: 5%;
+  }
+  25% {
+    top: 75%;
+    left: 15%;
+  }
+  50% {
+    top: 10%;
+    left: 80%;
+  }
+  75% {
+    top: 80%;
+    left: 70%;
+  }
+  100% {
+    top: 40%;
+    left: 40%;
+  }
+}
+
+/* Cambios de forma más agresivos y continuos (0% a 100% en bucle perfecto) */
+@keyframes mutarFormaExtrema {
+  0% {
+    border-radius: 42% 58% 70% 40% / 45% 45% 55% 55%;
+  }
+  20% {
+    border-radius: 60% 30% 52% 48% / 60% 40% 60% 40%;
+  }
+  40% {
+    border-radius: 40% 70% 35% 65% / 40% 60% 30% 70%;
+  }
+  60% {
+    border-radius: 65% 35% 80% 20% / 70% 30% 65% 35%;
+  }
+  80% {
+    border-radius: 40% 60% 45% 55% / 35% 65% 50% 50%;
+  }
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+}
+
+/* Movimiento físico más caótico: sube, baja, gira y se encoge/estira levemente */
+@keyframes flotarComplejo {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-12px) translateX(8px) rotate(8deg) scale(1.04);
+  }
+  66% {
+    transform: translateY(5px) translateX(-10px) rotate(-6deg) scale(0.96);
+  }
+  100% {
+    transform: translateY(-20px) translateX(4px) rotate(15deg) scale(1.02);
+  }
+}
+
+/* --- ANIMACIÓN FLUIDA UNIFICADA --- */
+@keyframes mutarForma {
+  0% {
+    border-radius: 52% 78% 60% 48% / 45% 55% 85% 75%;
+  }
+  33% {
+    border-radius: 70% 30% 52% 48% / 30% 40% 60% 80%;
+  }
+  66% {
+    border-radius: 50% 50% 35% 65% /52% 78% 60% 80%;
+  }
+  100% {
+    border-radius: 60% 40% 70% 30% / 50% 50% 50% 50%;
+  }
+}
+
+/* Efecto de vaivén en el espacio (sin gravedad) */
+@keyframes flotar {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+/* Efecto de vaivén en el espacio (sin gravedad) */
+@keyframes flotar2 {
+  0% {
+    transform: translateY(0px) rotate(10deg);
+  }
+  100% {
+    transform: translateY(-15px) rotate(50deg);
+  }
+}
+
+@keyframes rutaGotaUno {
+  0% {
+    top: 5%;
+    left: 5%;
+  }
+  33% {
+    top: 70%;
+    left: 30%;
+  }
+  66% {
+    top: 20%;
+    left: 75%;
+  }
+  100% {
+    top: 80%;
+    left: 50%;
+  }
+}
+
+/* Ruta Gota 2 (Completamente invertida respecto a la 1) */
+@keyframes rutaGotaDos {
+  0% {
+    top: 85%;
+    left: 85%;
+  }
+  33% {
+    top: 15%;
+    left: 60%;
+  }
+  66% {
+    top: 75%;
+    left: 20%;
+  }
+  100% {
+    top: 10%;
+    left: 40%;
+  }
+}
+
+/* Ruta Gota 3 (Órbita periférica caótica) */
+@keyframes rutaGotaTres {
+  0% {
+    top: 45%;
+    left: 90%;
+  }
+  50% {
+    top: 80%;
+    left: 10%;
+  }
+  100% {
+    top: 15%;
+    left: 5%;
+  }
+}
+
+@-webkit-keyframes moveBackground {
+  from {
+    background-position: 10% 30% 50% 100%;
+  }
+  to {
+    background-position: 10% 30% 50% 100%;
+  }
+}
+
+@keyframes moveBackground {
+  from {
+    background-position: 30% 100%;
+  }
+  to {
+    background-position: 50% 10%;
+  }
+}
+
+@keyframes blob-movimiento {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    border-radius: 62% 38% 24% 76% / 59% 60% 40% 41%;
+  }
+  33% {
+    transform: translate(30px, -50px) rotate(120deg);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+  66% {
+    transform: translate(-40px, 40px) rotate(240deg);
+    border-radius: 40% 60% 50% 50% / 30% 40% 60% 70%;
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+    border-radius: 62% 38% 24% 76% / 59% 60% 40% 41%;
+  }
+}
+
+@keyframes caerGota {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes drop {
+  0% {
+    border-radius: 62% 38% 24% 76% / 59% 60% 40% 41%;
+  }
+  33% {
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+  66% {
+    border-radius: 40% 60% 50% 50% / 30% 40% 60% 70%;
+  }
+  100% {
+    border-radius: 62% 38% 24% 76% / 59% 60% 40% 41%;
+    /* transform: rotate(360deg); */
+  }
+}
+@keyframes blob3-movimiento {
+  0% {
+    top: 50vh;
+    left: 35vw;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  }
+  40% {
+    top: 15vh;
+    left: 20vw;
+    border-radius: 61% 39% 43% 57% / 63% 36% 64% 37%;
+  }
+  80% {
+    top: 45vh;
+    left: 30vw;
+    border-radius: 43% 57% 32% 68% / 35% 71% 29% 65%;
+  }
+  100% {
+    top: 30vh;
+    left: 20vw;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transform: rotate(360deg);
+  }
+}
+/* :root {
+  --bg-dark-custom: linear-gradient(to left, #030d41, #541d84)!important;
+  --bg-dark-before: linear-gradient(to top, #000000, #541d84);
+  --text-dark: hsl(257, 55%, 76%);
+  --text-secondary-dark: hsl(256, 100%, 93%);
+  --accent-dark: #00b3ff;
+  --bg-secondary-dark: #00aaff;
+  --bg-tertiary-dark: #790cff;
+
+  --bg-light-custom: linear-gradient(to left,#b1adfca9, rgb(238, 238, 253))!important;
+  --bg-light-before: linear-gradient(45deg, #790cff81, #00c3ff59);
+  --blob-blue-dark: rgba(24, 106, 168, 0.7);
+  --blob-purple-light: rgba(182, 138, 234, 0.592);
+
+  
+--bg-gradient-purple: conic-gradient(45deg, #790cff, #933de3);  
+--bg-gradient-purple: conic-gradient(45deg, #0caaff, #0dbce4);  
+
+
+  --text-light: #253357;
+  --text-secondary-light: #0f0000;
+  --accent-light: #5200d7;
+  --bg-secondary-light: #790cff;
+  --bg-tertiary-light: #00eaff;
+  --blob-blue-light: rgb(255, 0, 0);
+  --blob-purple-light: rgba(182, 138, 234, 0.592);
+  --blob-light-shadow: inset 0px 35px 10px rgba(0, 206, 209, 0.4),  
+    inset -10px -10px 15px rgba(255, 255, 255, 0.8), 
+    10px 20px 20px rgba(0, 206, 209, 0.15),       
+    5px 5px 10px rgba(0, 0, 0, 0.08); 
+    --blob-purple-shadow:inset 0px 10px 10px #974afca4, 
+    0 0 20px #922cffa4, /* Reducido de 580px a 180px para que no se disperse tanto el brillo */
+
+/* --- Nuevas sombras internas para el volumen de agua --- 
+    inset 5px 10px 80px rgba(229, 212, 246, 0.45),  Volumen morado intenso 
+    inset -10px -10px 10px rgba(255, 255, 255, 0.945), /* Luz interna blanca 
+    5px 5px 15px rgba(159, 105, 201, 0.1);               /* Sombra base tenue 
+} */
+
+/* --blob-light-shadow: 0 0 200px #00e1ffbb, 0 0 40px #1ac8dfbb, 0 0 80px #1ac8dfbb inset; */
+
+/* body {
+  margin: 0;
+  padding: 0;
+  /background-image:linear-gradient(45deg,rgb(0, 208, 255), rgb(85, 1, 255)); 
+  background-image :var(--bg-light-custom);
+  overflow: hidden;
+  min-height: 100vh;
+  background-size: 100% 100%;
+  animation: bg-animation 2s infinite alternate;
+    / mask-image: linear-gradient(to bottom, transparent, black);} /
+
+&::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mask-image: linear-gradient(to bottom, transparent, black);
+    background: var(--bg-light-before)
+  } 
+body {
+    min-height: 100vh;
+    background-color: #d8e0ff;
+    overflow-x: hidden;
+}
+
+.bg-par{
+background-image:  linear-gradient(45deg, #790cff, #6e03d3);  
+
+}
+.bg-impar{
+background-image:  linear-gradient(45deg, #0caeff, #03add3);  
+
+}
+
+.bg-impar img, .bg-par img{
+width: 100px;
+}
+.container-blob {
+    width: 100%; /* Corregido de 50% para abarcar la pantalla si se usa min-width 
+    min-height: 100vh; /* Corregido de min-width a min-height para centrado vertical 
+    position: relative;
+    z-index:-1;
+}
+
+.div4, .div3, .div2, .div {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute; /* Habilitado para que puedas moverlo libremente *
+  width: 350px;
+  height: 350px;    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 62% 38% 24% 76% / 59% 60% 40% 41%;
+  
+  /* Nota: Recuerda declarar la animación '@keyframes drop' en tu CSS para que funcione *
+}
+/* Corregido: Eliminado el espacio. Ahora aplica directamente al pasar el mouse sobre el blob *
+
+.div4, .div3, .div2, .div::before {
+  content: "";
+  position: absolute; /* Corregido de relative a absolute para encajar sobre el blob 
+  top: 0;
+  left: 0;
+  width: 100%; /* Ahora se adapta exactamente al tamaño de .div4, .div3, .div2, .div 
+  height: 100%;
+  border-radius: inherit; /* Hereda la forma orgánica o circular del elemento padre 
+  pointer-events: none; /* Evita que interfiera con los clics o hovers 
+  
+  /* Corregido: Agregadas comas faltantes entre sombras 
+  box-shadow: 
+    inset 20px 20px 20px rgba(113, 5, 255, 0.15), 
+    25px 35px 20px rgba(138, 5, 255, 0.145), 
+    25px 30px 30px rgba(72, 68, 75, 0.3), 
+    inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+}
+
+/* Corregido: Eliminado el espacio para que actúe correctamente como el brillo del elemento 
+.div4, .div3, .div2, .div::after {
+  content: ""; /* Eliminado el texto "565" para que sea un brillo limpio de agua 
+  position: absolute;
+  top:12%; /* Ajustado para que se posicione de forma realista dentro del borde 
+  left: 30%;
+  width: 20%; /* Proporcional a un blob de 350px 
+  height: 10%;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  transform: rotate(-20deg); /* Inclinación sutil típica de los brillos de agua 
+}
+.glass{
+  opacity: 0.8!important;
+  backdrop-filter: blur(45px);
+  background-color: #faffff90;
+}
+
+
+/* calculadora blobs */
+/* Blob base */
+
+/* --- BLOB 1 (turqueza) ---
+.div {
+  width: 20em;
+  height: 20em;
+  filter:blur(2px);
+  background-color: var(blob-blue-light);
+  /* El glow neón se logra combinando múltiples sombras del mismo color */
+/* El destello de brillo superior
+.gota-turquesa::before {
+  content: "";
+  top: 15px;
+  left: 30px;
+  width: 25px;
+  height: 15px;
+  background: rgb(255, 255, 255); /* Blanco intenso 
+  border-radius: 50%; /* Forma de elipse 
+  transform: rotate(-20px); /* Lo inclina para seguir la curva 
+  filter: blur(px); /* Suaviza los bordes del reflejo 
+}
+box-shadow: var(--blob-light-shadow);
+  
+   animation: blob-movimiento 10s infinite alternate ease-in-out;} */
+
+/* --- BLOB 2 (turqueza) --- 
+.div2 {
+  width: 18em;
+  height: 18em;
+  border-radius: 10% 20% 5% 40% / 70% 30% 15%10%;
+  filter: blur(2px);
+  background-color: var(blob-blue-light);
+  /* El destello de brillo superior
+.gota-turquesa::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  width: 25px;
+  height: 15px;
+  background: rgb(255, 255, 255); /* Blanco intenso
+  border-radius: 50%; /* Forma de elipse
+  transform: rotate(-20px); /* Lo inclina para seguir la curva
+  filter: blur(px); /* Suaviza los bordes del reflejo 
+}
+box-shadow: var(var(--blob-light-shadow));
+  
+  animation: blob2-movimiento 100s infinite alternate ease-in-out;
+}
+
+/* --- BLOB 3 (morado) --- 
+.div3 {
+  width: 22em;
+  height: 20em;
+  border-radius: 10% 30% 15%10% / 40% 20% 5% 10%;
+
+  filter: blur(2px);
+  background-color: var(--blob-light);
+  box-shadow:var(--blob-purple-shadow); 
+  
+  animation: blob3-movimiento 80s infinite alternate ease-in-out;
+}
+
+ --- BLOB 4 (morado) --- 
+.div4, .div3, .div2, .div {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 15em;
+  height: 14em;
+  border-radius: 70% 30% 15%10% / 40% 20% 5% 10%;
+
+  filter: blur(1.2px);
+  background-color: var(--blob-light);
+  box-shadow:var(--blob-purple-shadow);   
+  animation: blob4-movimiento 80s infinite alternate ease-in-out; /
+}
+
+  /* ANIMACIONES INDEPENDIENTES  
+  'border-radius' con 8 valores para deformar el círculo y simular un fluido (blob).
+  'top' y 'left' con valores en 'vh' y 'vw' para abarcar toda la pantalla.
+ 
+  @keyframes blob-movimiento {
+  0% {
+    top: 35vh; left: 50vw;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: rotate(180deg);
+  }
+  33% {
+    top: 10vh; left: 60vw;
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+  }
+  66% {
+    top: 55vh; left: 65vw;
+    border-radius: 50% 50% 28% 72% / 30% 60% 40% 70%;
+  }
+  100% {
+    top: 30vh; left: 70vw;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes blob2-movimiento {
+  0% {
+    top: 50vh; left: 45vw;
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+
+  }
+  25%{
+     top: 10vh; left: 40vw;
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+  50% {
+    top: 40vh; left: 55vw;
+    border-radius: 30% 70% 70% 30% / 50% 30% 70% 50%;
+    transform: rotate(180deg);
+  }
+  100% {
+    top: 40vh; left: 60vw;
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes blob3-movimiento {
+  0% {
+    top: 50vh; left: 35vw;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  }
+  40% {
+    top: 15vh; left: 20vw;
+    border-radius: 61% 39% 43% 57% / 63% 36% 64% 37%;
+  }
+  80% {
+    top: 45vh; left: 30vw;
+    border-radius: 43% 57% 32% 68% / 35% 71% 29% 65%;
+  }
+  100% {
+    top: 30vh; left: 20vw;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transform: rotate(360deg);
+  }
+}
+@keyframes blob4-movimiento {
+  0% {
+    top: 30vh; left: 20vw;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  }
+  /* 40% {
+    top: 15vh; left: 20vw;
+    border-radius: 61% 39% 43% 57% / 63% 36% 64% 37%;
+  }
+  80% {
+    top: 65vh; left: 30vw;
+    border-radius: 43% 57% 32% 68% / 35% 71% 29% 65%;} 
+  
+  100% {
+    top: 70vh; left: 10vw;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transform: rotate(360deg);
+  }
+} */

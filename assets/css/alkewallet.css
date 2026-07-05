@@ -1,0 +1,19 @@
+body {
+  background-color: #9292f8;
+  background-image: linear-gradient(45deg, #13829d, #2e3eb9, #740bb6);
+  color: #ffffff79!;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.hero-heading {
+  font-size: 3.5rem !important;
+  font-weight: semibold !important;
+}
+.hero-image{
+  width: 18rem;
+
+}

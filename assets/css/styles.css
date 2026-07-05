@@ -1,65 +1,244 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-    padding: 20px;
-}
-
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-/* paleta de colores */
 :root {
-    /* CSS HEX */
-    --indigo: #58148fff;
-    --teal: #0e7c7bff;
-    --tropical-teal: #17bebbff;
-    --twilight-indigo: #3f386bff;
-    --frosted-mint: #d4f4ddff;
+  /* CSS HEX */
+  --indigo: #58148fff;
+  --teal: #0e7c7bff;
+  --tropical-teal: #17bebbff;
+  --twilight-indigo: #3f386bff;
+  --frosted-mint: #d4f4ddff;
+  --tropical-magenta: #930ee6;
+  /* paleta-de-colores:  */
+  --violet-spark: #6e44ff;
+  --neon-coral: #ff4278;
+  --neon-green: #d6ff42;
+  --aqua: #42ffca;
+  --fresh-sky: #00a7e1;
+  --bubblegum-pink: #ef626c;
 
-    /* CSS HSL */
-    --indigo: hsla(273, 75%, 32%, 1);
-    --teal: hsla(179, 80%, 27%, 1);
-    --tropical-teal: hsla(179, 78%, 42%, 1);
-    --twilight-indigo: hsla(248, 31%, 32%, 1);
-    --frosted-mint: hsla(137, 59%, 89%, 1);
+  --dark-blue: #2e00d6;
+  --blush-pink: #f6e8ea;
+  --pearl-aqua: #84dccf;
 
-    --intense-cherry: #c52233ff;
-    --cool-steel: #96acb7ff;
-    --ruby-red: #a51c30ff;
-    --twilight-indigo: #3f386bff;
-    --brown-red: #a7333fff;
+  /* gradientes */
+  --fresh-gradient: linear-gradient(
+    45deg,
+    #6e44ff,
+    #00a7e1,
+    #42ffca,
+    #ffe942,
+    #ffb374,
+    #ff4278
+  );
 
-    /* SCSS Gradient */
-    --gradient-background: linear-gradient(315deg, rgba(147, 14, 230, 1) 0%, rgba(99, 94, 235, 1) 100%);
+  --bg-gradient: linear-gradient(45deg, #13829d, #2e3eb9, #740bb6);
+
+  --bg-gradient-contrast: linear-gradient(
+    45deg,
+    #36cdcd,
+    #6e44ff,
+    #e6a16cd7,
+    #6e44ff,
+    #36cdcd
+  );
+
+--bg-light:linear-gradient(45deg, #790cff, #031fd3);
+--bg-light-before: linear-gradient(45deg, #790cff, #03add3);  
+--bg-light-after: linear-gradient(45deg, #f9f6f6, #f1eee8);
+  
+--bg-dark:linear-gradient(to bottom,  rgb(37, 11, 91), rebeccapurple);
+/* --bg-dark-before: linear-gradient(90deg, mediumslateblue,  pink); 
+/* --bg-dark-after: linear-gradient(45deg, #7986d086, rgba(216, 153, 126, 0.549)); 
+--mask-dark: linear-gradient(to bottom, transparent, black); */
+
+
+
+
+  /* --bg-gradient1: linear-gradient(
+      75deg,
+      #0e93f1,
+      #4056ff,
+      #4056ff,
+      #5b16f0,
+      #6320f5,
+      #5b16f0,
+      #8529f6
+    );
+
+ 
+  --gradient: linear-gradient(
+    45deg,
+    #0e107c,
+    #175dbe,
+    #008080,
+    #713bc2,
+    #9b5eeb,
+    #8b33ae
+  ); */
+}
+
+.blob {
+  /* background-image: linear-gradient(90deg, #19a3e2 0%, #a292fe 100%); */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff79;
+  min-height: 100vh;
+  background-image: var(--bg-gradient-contrast);
+  background-color: rgb(87, 87, 197);
+  background-size: 400% 400%;
+  animation: bg-animation 30s infinite ;
 }
 
 /* body {
-background: -webkit-linear-gradient(315deg, rgba(147, 14, 230, 1) 0%, rgba(99, 94, 235, 1) 100%);
-background: -moz-linear-gradient(315deg, rgba(147, 14, 230, 1) 0%, rgba(99, 94, 235, 1) 100%);
-background: linear-gradient(315deg, rgba(147, 14, 230, 1) 0%, rgba(99, 94, 235, 1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#930EE6", endColorstr="#635EEB", GradientType=0);
-background-attachment: fixed;
-background: size 100vh 100vw; 
-}
+  background: linear-gradient(90deg, #5162fb, #7115e1);
+  color: #ffffff79;
+  min-height: 100vh;
+  background-size: 400% 400%;
+  animation: bg-animation 5s infinite alternate;
 
-.container {
-background: var(--teal);
-    height: 100vh;
-    display:grid;
-}
-
- img{
-    width: 50px;
-    height: auto;
-}
-
-img:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mask-image: linear-gradient(to bottom, transparent, black);
+    background: linear-gradient(90deg, hotpink, rgb(240, 226, 126));
+  }
 } */
+
+body {
+  background: var(--bg-dark);
+
+  /* background: linear-gradient(45deg, #790cff, #02f1e1); */
+  color: #ffffff79;
+  min-height: 100vh;
+  background-size: 200% 200%;
+  animation: bg-animation 1s infinite alternate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mask-image: linear-gradient(to bottom, transparent, black);
+    /* background: var(--bg-light-before); */
+    background: var(--bg-dark-before)
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mask-image: linear-gradient(to bottom, transparent, black);
+    /* background: var(--bg-light-after); */
+    background: var(--bg-dark-after);
+  }
+}
+
+
+.div {
+  width: 250px;
+  height: 210px;
+  border-radius: 50%;
+  background-color: red;
+  box-shadow: 0 0 10px rgba(223, 102, 102, 0.907);
+  filter: blur(5px);
+  position: relative;
+  animation: myAnimation 80s infinite alternate;
+}
+
+.div2 {
+  width: 110px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgb(229, 241, 6);
+  box-shadow: 0 0 10px rgba(223, 211, 102, 0.907);
+  filter: blur(5px);
+  position: relative;
+  animation: myAnimation 20s infinite alternate;
+}
+.div3 {
+  width: 100px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgb(0, 229, 255);
+  box-shadow: 0 0 100px 10px rgb(248, 249, 248);
+  filter: blur(5px);
+  position: relative;
+  animation: myAnimation 10s infinite alternate;
+  transform: rotate(45deg);
+}
+
+@keyframes myAnimation {
+  0%   {background-color:rgb(255, 0, 166); left:0px; top:0px;transform: rotate(180deg);}
+  25%  {background-color:yellow; left:200px; top:0px;transform: rotate(45deg);}
+  50%  {background-color:rgb(78, 78, 255); left:200px; top:200px;transform: rotate(135deg);}
+  75%  {background-color:rgb(127, 245, 127); left:0px; top:200px; transform: rotate(180deg);}
+  100% {background-color:rgb(146, 24, 246); left:100px; top:0px; transform: rotate(360deg);}
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.content {
+  padding: 3em;
+  box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.content:hover {
+  background-position: right;
+}
+
+/* paleta de colores */
+
+/* 
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#FF99C8" d="M52.1,-19.2C57.4,-0.8,44.5,21.3,25.9,34.5C7.4,47.7,-16.8,52,-34.5,40.8C-52.1,29.5,-63.3,2.6,-56.5,-17.9C-49.7,-38.5,-24.9,-52.7,-0.7,-52.5C23.4,-52.3,46.9,-37.6,52.1,-19.2Z" transform="translate(100 100)" />
+</svg> ROSA
+
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#FCF6BD" d="M52.1,-19.2C57.4,-0.8,44.5,21.3,25.9,34.5C7.4,47.7,-16.8,52,-34.5,40.8C-52.1,29.5,-63.3,2.6,-56.5,-17.9C-49.7,-38.5,-24.9,-52.7,-0.7,-52.5C23.4,-52.3,46.9,-37.6,52.1,-19.2Z" transform="translate(100 100)" />
+</svg> AMARILLO
+
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#A7F0B" d="M52.1,-19.2C57.4,-0.8,44.5,21.3,25.9,34.5C7.4,47.7,-16.8,52,-34.5,40.8C-52.1,29.5,-63.3,2.6,-56.5,-17.9C-49.7,-38.5,-24.9,-52.7,-0.7,-52.5C23.4,-52.3,46.9,-37.6,52.1,-19.2Z" transform="translate(100 100)" />
+</svg>
+VERDE
+
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#E4C1F9" d="M52.1,-19.2C57.4,-0.8,44.5,21.3,25.9,34.5C7.4,47.7,-16.8,52,-34.5,40.8C-52.1,29.5,-63.3,2.6,-56.5,-17.9C-49.7,-38.5,-24.9,-52.7,-0.7,-52.5C23.4,-52.3,46.9,-37.6,52.1,-19.2Z" transform="translate(100 100)" />
+</svg> LILA
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

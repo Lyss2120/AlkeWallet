@@ -1,0 +1,47 @@
+<svg xmlns="http://w3.org" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Degradados para las formas líquidas -->
+    <linearGradient id="liquid-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#4facfe" stop-opacity="0.2"/>
+    </linearGradient>
+    
+    <linearGradient id="liquid-pink" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff0844" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffb199" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <linearGradient id="liquid-purple" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7028ff" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#00d2ff" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <!-- Filtro de desenfoque para simular el efecto de vidrio derretido -->
+    <filter id="glass-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- El fondo permanece vacío para garantizar la transparencia absoluta -->
+
+  <!-- Grupo de formas dinámicas con filtro de fluidez -->
+  <g filter="url(#glass-blur)">
+    <!-- Onda fluida principal superior (Simula flujo descendente) -->
+    <path d="M-100,-100 Q200,300 500,100 T900,-100 L900,-100 L-100,-100 Z" fill="url(#liquid-cyan)" />
+    
+    <!-- Burbuja líquida en movimiento diagonal derecha -->
+    <path d="M550,200 C700,150 850,300 800,500 C750,700 500,650 450,500 C400,350 400,250 550,200 Z" fill="url(#liquid-pink)" />
+
+    <!-- Onda fluida inferior (Simula ascenso dinámico) -->
+    <path d="M-50,650 C150,500 350,750 550,600 C750,450 850,700 900,850 L-50,850 Z" fill="url(#liquid-purple)" />
+    
+    <!-- Esfera flotante distorsionada (Efecto de velocidad) -->
+    <path d="M150,300 C250,200 350,320 280,450 C210,580 50,450 150,300 Z" fill="url(#liquid-cyan)" />
+  </g>
+
+  <!-- Destellos definidos en primer plano para dar sensación de velocidad y brillo -->
+  <circle cx="300" cy="250" r="12" fill="#fff" opacity="0.6" />
+  <circle cx="520" cy="580" r="8" fill="#fff" opacity="0.4" />
+  <circle cx="220" cy="520" r="16" fill="#fff" opacity="0.2" />
+</svg>
