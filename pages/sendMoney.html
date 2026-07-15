@@ -13,7 +13,7 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-sm py-3">
+  <nav class="navbar navbar-expand-sm fixed-top">
     <div class="container text-light">
       <a class="navbar-brand" href="/">AlkeWallet</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -27,56 +27,74 @@
           <a class="nav-link" href="deposit.html">Deposit</a>
           <a class="nav-link" href="sendMoney.html">Send Money</a>
           <a class="nav-link" href="transactions.html">Transactions</a>
+          <a class="nav-link" href="login.html">Login</a>
           <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
         </div>
       </div>
     </div>
   </nav>
   <!-- header -->
-  <header class="">
-    <div class="container mt-5">
-      <h1 class="text-center">Bienvenido a AlkeWallet</h1>
-    </div>
+  <header class="pt-5 pb-3 mt-5">
+    <h1 class="text-center">Enviar Dinero</h1>
   </header>
   <!-- main -->
-  <main class="container-fluid p-5 rounded d-grid" id="sendMoney-container">
-    <!-- formulario permite seleccionar o agregar contactos para realizar la transferencia -->
-    <form action="" class="form-group">
-      <legend>
-        <h1 class="">Enviar Dinero</h1>
-      </legend>
-      <div class="form-group">
-        <label for="recipient">Buscar en la agenda de transferencias</label>
-        <!-- agregar nuevo contacto -->
-        <input type="text" class="form-control" id="recipient" placeholder="Buscar contacto" />
-        <button type="button" class="btn btn-primary mt-3">
-          Agregar Nuevo contacto
-        </button>
+  <main class="container rounded d-grid mb-5" id="sendMoney-container">
+    <section class="sendmoney-section row justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 rounded">
+        <form action="" class="form-control needs-validation">
+          <div class="form-group">
+            <h2>Buscar en la agenda de transferencias</h2>
+            <!-- agregar nuevo contacto -->
+            <input type="text" class="form-control" id="recipient" placeholder="Buscar contacto" />
+            <button type="button" class="btn btn-primary mt-3">
+              Agregar Nuevo contacto
+            </button>
+          </div>
+          <!-- seleccionar contacto existente -->
+          <h2 class="mt-3">Contactos</h2>
+          <ul class="list-group">
+            <li class="list-group-item">
+              John Doe - CBU 123456789 - Alias John Doe - Banco ABC Bank
+            </li>
+            <li class="list-group-item">
+              Jane Smith - CBU 987654321 - Alias Jane Smith - Banco XYZ Bank
+            </li>
+          </ul>
+          <!-- boton submit para transferir a contacto mandar a deposit.html-->
+          <button type="submit" class="btn btn-primary w-100">
+            Enviar dinero
+          </button>
+          <!-- boton para volver al menu -->
+          <button type="button" class="btn btn-secondary w-100">
+            <a href="menu.html" class="text-light text-decoration-none">Volver al Menu</a>
+          </button>
+        </form>
       </div>
-      <!-- seleccionar contacto existente -->
-      <h2 class="mt-3">Contactos</h2>
-      <ul class="list-group">
-        <li class="list-group-item">
-          John Doe - CBU 123456789 - Alias John Doe - Banco ABC Bank
-        </li>
-        <li class="list-group-item">
-          Jane Smith - CBU 987654321 - Alias Jane Smith - Banco XYZ Bank
-        </li>
-      </ul>
-      <!-- boton submit para transferir a contacto mandar a deposit.html-->
-      <button type="submit" class="btn btn-primary w-100">
-        Enviar dinero
-      </button>
-      <!-- boton para volver al menu -->
-      <button type="button" class="btn btn-secondary w-100">
-        <a href="menu.html" class="text-light text-decoration-none">Volver al Menu</a>
-      </button>
-    </form>
+    </section>
   </main>
   <!-- footer -->
-  <footer class="container-fluid h-10 bottom-0 px-0">
-    <section class="footer-section bottom-0"></section>
-  </footer>
+  <!-- <footer class="container-fluid  bg-black p-3 px-0">
+    <section class="footer-section bottom-0 row text-center px-5">
+
+      <ul class="footer-links col">
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+
+      <ul class="footer-rrss col">
+        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/facebook.png" alt="Facebook" /></a></li>
+        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/twitter.png" alt="Twitter" /></a></li>
+        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/linkedin.png" alt="LinkedIn" /></a></li>
+      </ul>
+
+      <ul class="footer-contact col">
+        <li><a href="#">Email:</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+
+    </section>
+  </footer> -->
 
   <!-- scripts -->
 

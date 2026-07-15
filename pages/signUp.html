@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="../assets/img/aw-logo.png" />
-  <title>Login</title>
+  <title>Regristro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
   <link rel="stylesheet" href="../assets/css/alkewallet.css" />
@@ -14,7 +14,7 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
   <!-- script del proyecto defer paRA q funcione-->
-  <script defer src="../assets/js/login.js"></script>
+  <script defer src="../assets/js/signUp.js"></script>
 </head>
 
 <body>
@@ -34,6 +34,8 @@
           <a class="nav-link" href="sendMoney.html">Send Money</a>
           <a class="nav-link" href="transactions.html">Transactions</a>
           <a class="nav-link" href="login.html">Login</a>
+          <a class="nav-link" href="signUp.html">Sign Up</a>
+          <!-- agregar logout -->
           <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
         </div>
       </div>
@@ -44,12 +46,16 @@
     <h1 class="text-center">Login</h1>
   </header>
   <!-- main -->
-  <main class="container rounded d-grid mb-5" id='login-container'>
+  <main class="container rounded d-grid mb-5" id="signUp-container">
     <!-- background drops -->
-    <section class="login-section row justify-content-center">
+    <section class="signUp-section row justify-content-center">
       <div class="col-12 col-sm-10 col-md-8">
-        <!-- formulario de login -->
-        <form class="form-control" id="loginForm">
+        <!-- formulario de signUp -->
+        <form class="form-control" id="signUpForm">
+                      <div class="mb-3 form-group ">
+            <label for="email" class="form-label">Nombre </label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required />
+          </div>
           <div class="mb-3 form-group ">
             <label for="email" class="form-label">Email </label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu email" required />
@@ -59,34 +65,12 @@
             <input type="password" class="form-control" id="password" name="password"
               placeholder="Ingresa tu contraseña" required />
           </div>
-          <!-- checkbox para futura persistencia de datos -->
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" name="recordarme" id="checkbox" />
-            <label class="form-check-label" for="checkbox">Recordarme</label>
-          </div>
 
-          <!-- Botón de Login Principal -->
+
+          <!-- Botón de sign up Principal y redirección a index -->
           <button type="submit" value="Login" class="btn btn-primary form-control mb-3">
-            Login
+            Registrate
           </button>
-
-
-          <!-- Divisor visual -->
-          <div class="text-center my-3 position-relative">
-            <hr class="text-muted">
-            <span class="position-absolute top-50 start-50 translate-middle bg-white px-2 text-muted small"></span>
-          </div>
-
-          <p class="text-center">No tienes cuenta? <a href="signUp.html" class="text-decoration-underline">Registrate aquí</a></p>
-
-
-          <!-- Botón de Google
-          <button type="button" class="btn btn-outline-secondary form-control d-flex align-items-center justify-content-center gap-2">
-            <svg xmlns="http://w3.org" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
-              <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0c2.158 0 3.972.79 5.4 2.073l-2.251 2.253c-.63-.61-1.73-1.32-3.149-1.32-2.7 0-4.9 2.24-4.9 5s2.2 5 4.9 5c3.14 0 4.31-2.26 4.49-3.4H8v-2.83h7.545z"/>
-            </svg>
-            Continuar con Google
-          </button> -->
         </form>
       </div>
     </section>
