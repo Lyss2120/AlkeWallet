@@ -28,13 +28,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          <a class="nav-link" href="menu.html">Menu</a>
-          <a class="nav-link" href="deposit.html">Deposit</a>
-          <a class="nav-link" href="sendMoney.html">Send Money</a>
-          <a class="nav-link" href="transactions.html">Transactions</a>
+            <a class="nav-link active" aria-current="page" href="../index.html"
+              >Home</a>
+          <a class="nav-link disabled" aria-disabled="true" href="menu.html">Menu</a>
+          <a class="nav-link disabled" aria-disabled="true" href="deposit.html">Deposit</a>
+          <a class="nav-link disabled" aria-disabled="true" href="sendMoney.html">Send Money</a>
+          <a class="nav-link disabled" aria-disabled="true" href="transactions.html">Transactions</a>
           <a class="nav-link" href="login.html">Login</a>
-          <a class="nav-link" href="signUp.html">Sign Up</a>
           <!-- agregar logout -->
           <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
         </div>
@@ -43,7 +43,7 @@
   </nav>
 
   <header class="pt-5 pb-3 mt-5">
-    <h1 class="text-center">Login</h1>
+    <h1 class="text-center">Crear Cuenta</h1>
   </header>
   <!-- main -->
   <main class="container rounded d-grid mb-5" id="signUp-container">
@@ -61,15 +61,15 @@
             <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu email" required />
           </div>
           <div class="mb-3 form-group ">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password"
+            <label for="contraseña" class="form-label">Contraseña</label>
+            <input type="contraseña" class="form-control" id="contraseña" name="contraseña"
               placeholder="Ingresa tu contraseña" required />
           </div>
 
 
           <!-- Botón de sign up Principal y redirección a index -->
           <button type="submit" value="Login" class="btn btn-primary form-control mb-3">
-            Registrate
+            Crear
           </button>
         </form>
       </div>

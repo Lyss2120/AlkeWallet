@@ -28,12 +28,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          <a class="nav-link" href="menu.html">Menu</a>
-          <a class="nav-link" href="deposit.html">Deposit</a>
-          <a class="nav-link" href="sendMoney.html">Send Money</a>
-          <a class="nav-link" href="transactions.html">Transactions</a>
-          <a class="nav-link" href="login.html">Login</a>
+          <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+          <a class="nav-link disabled" aria-disabled="true" href="menu.html">Menu</a>
+          <a class="nav-link disabled" aria-disabled="true" href="deposit.html">Deposit</a>
+          <a class="nav-link disabled" aria-disabled="true" href="sendMoney.html">Send Money</a>
+          <a class="nav-link disabled" aria-disabled="true" href="transactions.html">Transactions</a>
+          <a class="nav-link active" aria-current="page" href="login.html">Login</a>
           <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
         </div>
       </div>
@@ -44,17 +44,17 @@
     <h1 class="text-center">Login</h1>
   </header>
   <!-- main -->
-  <main class="container rounded d-grid mb-5" id='login-container'>
+  <main class="container rounded d-grid mb-5" id="login-container">
     <!-- background drops -->
     <section class="login-section row justify-content-center">
       <div class="col-12 col-sm-10 col-md-8">
         <!-- formulario de login -->
         <form class="form-control" id="loginForm">
-          <div class="mb-3 form-group ">
+          <div class="mb-3 form-group">
             <label for="email" class="form-label">Email </label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu email" required />
           </div>
-          <div class="mb-3 form-group ">
+          <div class="mb-3 form-group">
             <label for="password" class="form-label">Contraseña</label>
             <input type="password" class="form-control" id="password" name="password"
               placeholder="Ingresa tu contraseña" required />
@@ -70,15 +70,16 @@
             Login
           </button>
 
-
           <!-- Divisor visual -->
           <div class="text-center my-3 position-relative">
-            <hr class="text-muted">
+            <hr class="text-muted" />
             <span class="position-absolute top-50 start-50 translate-middle bg-white px-2 text-muted small"></span>
           </div>
 
-          <p class="text-center">No tienes cuenta? <a href="signUp.html" class="text-decoration-underline">Registrate aquí</a></p>
-
+          <p class="text-center">
+            No tienes cuenta?
+            <a href="signUp.html" class="text-decoration-underline">Registrate aquí</a>
+          </p>
 
           <!-- Botón de Google
           <button type="button" class="btn btn-outline-secondary form-control d-flex align-items-center justify-content-center gap-2">
@@ -115,8 +116,6 @@
 
     </section>
   </footer> -->
-
-
 </body>
 
 </html>
