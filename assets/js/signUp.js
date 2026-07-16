@@ -17,3 +17,5 @@ signupForm.addEventListener("submit", function (event) {
       // finalmente redirecciona al menú principal con el usuario ya logueado para no reingresar los datos en login
       (location.href = "menu.html"));
 });
+
+
