@@ -10,15 +10,15 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
     if (nav) {
         nav.classList.remove('bg-dark');
-        nav.classList.add('bg-light-subtle');
+        nav.classList.add('glass', 'text-white');
     }
 })();
 
 // switch login logout
 if (currentUser) {
-        // SI EL USUARIO EXISTE: Transforma el botón de Login en uno de Logout
-        navLinkLogin.style.display = "block"; // Asegura que sea visible
-        navLinkLogin.textContent = "Logout";
+    // SI EL USUARIO EXISTE: Transforma el botón de Login en uno de Logout
+    navLinkLogin.style.display = "block"; // Asegura que sea visible
+    navLinkLogin.textContent = "Logout";
     // Agrega el evento para cerrar sesión
     navLinkLogin.addEventListener("click", (e) => {
         e.preventDefault();
@@ -26,7 +26,7 @@ if (currentUser) {
         if (confirmLogout === "s") {
             localStorage.removeItem("currentUser"); // Borra el usuario
             console.log("sesion cerrada", currentUser);
-            location.href === "index.html"? location.href = "index.html": location.href = "../index.html";
+            location.href === "index.html" ? location.href = "index.html" : location.href = "../index.html";
         }
 
     });

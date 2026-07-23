@@ -23,7 +23,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link home" href="../index.html">Home</a> 
+                    <a class="nav-link home" href="../index.html">Home</a>
                     <a class="nav-link" href="menu.html">Menu</a>
                     <a class="nav-link active" aria-current="page" href="deposit.html">Deposit</a>
                     <a class="nav-link" href="sendMoney.html">Send Money</a>
@@ -39,31 +39,60 @@
         <h1 class="text-center">Depositar</h1>
     </header>
 
+    <!-- depositar dinero en cuenta de alke-wallet -->
     <main class="container rounded d-grid" id="deposit-container">
 
-        <section class="deposit-section row justify-content-center">
-            <div class="col-12 col-sm-10 col-md-8">
-                <h2 class="text-center">
-                    Balance de cuenta: $ <span id="balance">0</span>
-                </h2>
-                <form class="form-control needs-validation" id="form-deposito" novalidate>
-                    <!-- agregar clases is-valid o is-invalid junto a form-control con javascript -->
-                    <div class="form-group">
-                        <label for="monto">Monto a depositar: </label>
-                        <input type="number" class="form-control" id="monto" name="monto" placeholder="Enter amount"
-                            required min="500">
-                        <!-- fraces de validacion se muestran al cambiar clases is-valid o is-invalid -----
-                            Buscar como modificar tipo de moneda en aria label -->
-                        <div class="invalid-feedback">Please enter a valid amount.</div>
-                        <div class="valid-feedback">Looks good!</div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Depositar</button>
-                </form>
+        <section class="deposit-section row justify-content-center glass p-5">
+            <div class="col-12 col-sm-10 col-md-8 ">
+                <!-- BLOQUE 1: BALANCE -->
+                <div
+                    class="d-flex justify-content-between align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
+                    <h2 class="text-center h4 p-1 mb-0">
+                        Balance de cuenta: <span id="balance"></span>
+                    </h2>
+                </div>
+                <!-- BLOQUE 2: SELECCION DE TARJETA -->
+                <div class="d-block bg-light bg-opacity-10 p-4 border rounded bg-light bg-opacity-10">
+                    <h3 class="text-white h4 my-3">Elegir tarjeta para depositar a tu wallet: </h3>
+                    <!-- Grupo de tarjetas como checkbox dejar flex-column en sm-->
+                    <div class="form-check form-check-inline   d-flex justify-content-around  p-3" role="group"
+                        aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off"
+                            checked>
+                        <label class="btn" for="option5"> ITAU</label>
 
-            </div>
+                        <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
+                        <label class="btn" for="option6"> FALA</label>
+
+                        <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off">
+                        <label class="btn" for="option7"> CHIL</label>
+
+                        <input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
+                        <label class="btn" for="option8"> ESTA</label>
+                    </div>
+
+
+                    <!-- BLOQUE 3: FORMULARIO DE DEPOSITO -->
+                    <form class="form-control needs-validation d-block bg-light bg-opacity-10 p-4" id="form-deposito"
+                        novalidate>
+                        <!-- agregar clases is-valid o is-invalid junto a form-control con javascript -->
+                        <div class="input-group pb-3">
+                            <input type="number" class="form-control" id="monto" name="monto" placeholder="Enter amount"
+                                aria-label="Recipient’s username" aria-describedby="button-addon2" required min="500">
+                            <!-- fraces de validacion se muestran al cambiar clases is-valid o is-invalid -----
+                            Buscar como modificar tipo de moneda en aria label -->
+                            <div class="invalid-feedback">Please enter a valid amount.</div>
+                            <div class="valid-feedback">Looks good!</div>
+                            <button type="submit" id="button-addon2"
+                                class=" btn btn-info text-light-emphasis ">Depositar</button>
+
+                        </div>
+                    </form>
+
+                </div>
         </section>
 
-        <section class="section  bg-par container-fluid">
+        <!-- <section class="section  bg-par container-fluid">
             <div class="container-sm p-5">
                 <p class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim impedit dolore vel ab
                     assumenda, repellat repellendus incidunt? Sed illum distinctio aliquam debitis provident tenetur
@@ -75,7 +104,7 @@
                     </span>
 
             </div>
-        </section>
+        </section> -->
         </div>
     </main>
     <!-- footer -->

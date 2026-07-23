@@ -4,10 +4,8 @@
   const passwordInput = document.getElementById("password");
   const rememberCheckbox = document.getElementById("checkbox");
 
-  // si no se captura correctamente el formulario de login
-  if (!loginFormDom) return;
-
-  // true si el usuario ha marcado el checkbox anteriormente
+  
+  // check true si el usuario marcó recordarme anteriormente
   const savedEmail = localStorage.getItem("rememberedEmail");
   if (savedEmail) {
     emailInput.value = savedEmail;
