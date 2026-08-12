@@ -4,7 +4,11 @@ const navLinks = document.querySelectorAll(".nav-link");
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
+const saludo = document.querySelector("#saludo");
 
+if (currentUser) {
+    saludo.textContent = `Bienvenido ${currentUser.nombre}`;
+}
 (() => {
     const nav = document.querySelector('nav');
 

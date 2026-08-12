@@ -1,3 +1,5 @@
+// IIFE
+
 (() => {
     const formModalContacto = document.getElementById("form-modal-contacto");
     const listaContactos = document.getElementById("lista-contactos");
@@ -12,16 +14,21 @@
     const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
     if (!currentUser) return;
 
-    // Inicializar contactos por defecto si la lista está vacía
+    // Inicializar contactos por defecto si la lista está vacía console.log( typeof(currentUser.contactos[0].rut) )
+
     if (!Array.isArray(currentUser.contactos) || currentUser.contactos.length === 0 || typeof currentUser.contactos === 'string') {
         currentUser.contactos = [
             { nombre: "John Doe", rut: "11.111.111-1", banco: "Banco ABC", tipo: "Corriente", cuenta: "123456" },
             { nombre: "Jane Smith", rut: "22.222.222-2", banco: "Banco XYZ", tipo: "Vista", cuenta: "987654" }
         ];
+
+        
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
+    const saldoActual = currentUser.balance ? currentUser.balance : '0';
+    console.log(saldoActual.toLocaleString("es-CL"))
     // mostrar saldo cuenta balnac.toLocaleString("es-CL") 
-    currentUser.balance ? balanceSpan.textContent = currentUser.balance.toLocaleString("es-CL") : balanceSpan.textContent = "0".toLocaleString("es-CL");
+    balanceSpan.textContent = saldoActual.toLocaleString("es-CL")
 
 
     // --- FUNCIÓN PARA RENDERIZAR CONTACTOS (Acepta una lista filtrada) ---
@@ -152,18 +159,19 @@
 })();
 
 // probar y modificar para dar formato al rut
-formatRut: (rut) => {
-    // XX.XXX.XXX-X
-    const newRut = rut.replace(/\./g, '').replace(/\-/g, '').trim().toLowerCase();
-    const lastDigit = newRut.substr(-1, 1);
-    const rutDigit = newRut.substr(0, newRut.length - 1)
-    let format = '';
-    for (let i = rutDigit.length; i > 0; i--) {
-        const e = rutDigit.charAt(i - 1);
-        format = e.concat(format);
-        if (i % 3 === 0) {
-            format = '.'.concat(format);
-        }
-    }
-    return format.concat('-').concat(lastDigit);
-}
+// formatRut: (rut) => {
+//     // XX.XXX.XXX-X
+//     const newRut = rut.splice(-1, 0, '-');
+//     const lastDigit = newRut.substr(-1, 1);
+//     const rutDigit = newRut.substr(0, newRut.length - 1)
+//     let format = '';
+//     for (let i = rutDigit.length; i > 0; i--) {
+//         const e = rutDigit.charAt(i - 1);
+//         format = e.concat(format);
+//         if (i % 3 === 0) {
+//             format = '.'.concat(format);
+//         }
+//     }
+//     return format.concat('-').concat(lastDigit);
+// }
+// console.log(currentUser);

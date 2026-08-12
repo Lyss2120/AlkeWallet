@@ -18,6 +18,7 @@
   <nav class="navbar navbar-expand-sm fixed-top">
     <div class="container text-light">
       <a class="navbar-brand" href="/">AlkeWallet</a>
+      <span class="navbar-text text-white" id="saludo"></span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -47,23 +48,26 @@
         <!-- BLOQUE 1: Agregar nuevo contacto (Modal) -->
         <div class="d-flex justify-content-between align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
           <span class="text-white h4 mb-0">¿Deseas agregar un nuevo contacto?</span>
-          <button type="button" class="btn btn-light rounded-pill" data-bs-toggle="modal" data-bs-target="#modalNuevoContacto">
-            + 
+          <button type="button" class="btn btn-light rounded-pill" data-bs-toggle="modal"
+            data-bs-target="#modalNuevoContacto">
+            +
           </button>
         </div>
 
         <!-- BLOQUE 2: Formulario Principal de Transferencia -->
         <form id="form-transferir" class="form-control needs-validation d-block bg-light bg-opacity-10 p-4">
-
+          <span id="balance"></span>
           <!-- Seleccionar contacto existente -->
-          <h2 class="text-white h4 my-3">  <span>Transferir a contacto existente</span>
-  <!-- SVG en línea en lugar de la imagen PNG -->
-  <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-people">
-    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-  </svg></h2>
+          <h2 class="text-white h4 my-3"> <span>Transferir a contacto existente</span>
+            <!-- SVG en línea en lugar de la imagen PNG -->
+            <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-people">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </h2>
           <input type="text" class="form-control mb-3" id="recipient" placeholder="Buscar contacto..." required />
 
           <!-- Lista de contactos dinámicos -->
@@ -77,14 +81,15 @@
           <!-- Monto a transferir  -->
           <div class="input-group mb-3">
             <!-- <label for="monto-transferir" class="form-label text-white h4">Monto a transferir:</label> -->
-            <input type="number" id="monto-transferir" class="form-control" aria-label="Recipient’s username" aria-describedby="button-addon2" placeholder="Monto en CLP" required>
-              <!-- Botón submit para transferir dinero -->
-          <button type="submit" id="button-addon2"  class=" btn btn-info text-light-emphasis ">
-            Transferir
-          </button>
+            <input type="number" id="monto-transferir" class="form-control" aria-label="Recipient’s username"
+              aria-describedby="button-addon2" placeholder="Monto en CLP" required>
+            <!-- Botón submit para transferir dinero -->
+            <button type="submit" id="button-addon2" class=" btn btn-info text-light-emphasis ">
+              Transferir
+            </button>
           </div>
 
-        
+
 
           <!-- Botón para volver al menú -->
           <button type="button" class="btn btn-outline-light w-100 my-3">
@@ -98,66 +103,66 @@
 
 
 
-            <!-- ========================================== -->
-        <!-- MODAL DE BOOTSTRAP (AGREGAR NUEVO CONTACTO) -->
-        <!-- ========================================== -->
-        <div class="modal fade" id="modalNuevoContacto" tabindex="-1" aria-labelledby="modalContactoLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-dark">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalContactoLabel">Registrar Nuevo Contacto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <form id="form-modal-contacto">
-                <div class="modal-body">
-
-                  <div class="mb-3">
-                    <label for="reg-nombre" class="form-label">Nombre Completo</label>
-                    <input type="text" id="reg-nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="reg-rut" class="form-label">RUT</label>
-                    <input type="text" id="reg-rut" class="form-control" placeholder="Ej. 12.345.678-9" required>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="reg-banco" class="form-label">Banco</label>
-                    <select id="reg-banco" class="form-select" required>
-                      <option value="" selected disabled>Selecciona un banco</option>
-                      <option value="Banco de Chile">Banco de Chile</option>
-                      <option value="Banco Estado">Banco Estado</option>
-                      <option value="Banco Santander">Banco Santander</option>
-                      <option value="BCI">BCI</option>
-                      <option value="Scotiabank">Scotiabank</option>
-                      <option value="Mach / Cuenta RUT">Mach / Cuenta RUT</option>
-                    </select>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="reg-tipo" class="form-label">Tipo de Cuenta</label>
-                    <select id="reg-tipo" class="form-select" required>
-                      <option value="Cuenta Corriente">Cuenta Corriente</option>
-                      <option value="Cuenta Vista / RUT">Cuenta Vista / RUT</option>
-                      <option value="Cuenta de Ahorro">Cuenta de Ahorro</option>
-                    </select>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="reg-cuenta" class="form-label">Número de Cuenta</label>
-                    <input type="number" id="reg-cuenta" class="form-control" placeholder="Ej. 123456789" required>
-                  </div>
-
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="submit" class="btn btn-success">Guardar Contacto</button>
-                </div>
-              </form>
-            </div>
+    <!-- ========================================== -->
+    <!-- MODAL DE BOOTSTRAP (AGREGAR NUEVO CONTACTO) -->
+    <!-- ========================================== -->
+    <div class="modal fade" id="modalNuevoContacto" tabindex="-1" aria-labelledby="modalContactoLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalContactoLabel">Registrar Nuevo Contacto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          <form id="form-modal-contacto">
+            <div class="modal-body">
+
+              <div class="mb-3">
+                <label for="reg-nombre" class="form-label">Nombre Completo</label>
+                <input type="text" id="reg-nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-rut" class="form-label">RUT</label>
+                <input type="text" id="reg-rut" class="form-control" id="rut" title="Formato RUT" pattern="^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$" placeholder="12.345.678-K"  required>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-banco" class="form-label">Banco</label>
+                <select id="reg-banco" class="form-select" required>
+                  <option value="" selected disabled>Selecciona un banco</option>
+                  <option value="Banco de Chile">Banco de Chile</option>
+                  <option value="Banco Estado">Banco Estado</option>
+                  <option value="Banco Santander">Banco Santander</option>
+                  <option value="BCI">BCI</option>
+                  <option value="Scotiabank">Scotiabank</option>
+                  <option value="Mach / Cuenta RUT">Mach / Cuenta RUT</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-tipo" class="form-label">Tipo de Cuenta</label>
+                <select id="reg-tipo" class="form-select" required>
+                  <option value="Cuenta Corriente">Cuenta Corriente</option>
+                  <option value="Cuenta Vista / RUT">Cuenta Vista / RUT</option>
+                  <option value="Cuenta de Ahorro">Cuenta de Ahorro</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-cuenta" class="form-label">Número de Cuenta</label>
+                <input type="number" id="reg-cuenta" class="form-control" placeholder="Ej. 123456789" required>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Guardar Contacto</button>
+            </div>
+          </form>
         </div>
+      </div>
+    </div>
   </main>
   <!-- footer -->
   <!-- <footer class="container-fluid  bg-black p-3 px-0">
@@ -193,6 +198,3 @@
 </body>
 
 </html>
-
-
-

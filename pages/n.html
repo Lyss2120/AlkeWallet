@@ -2,97 +2,168 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="../assets/img/aw-logo.png" />
-    <title>Send Money</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../assets/css/alkewallet.css" />
-    <link rel="stylesheet" href="../assets/css/alkewallet.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../assets/img/aw-logo.png" />
+  <title>Transactions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/alkewallet.css" />
+  <link rel="stylesheet" href="../assets/css/alkewallet.css">
+  <script defer src="../assets/js/nav.js"></script>
+  <script defer src="../assets/js/transactions.js"></script>
 
 </head>
 
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-sm fixed-top">
-        <div class="container text-light">
-            <a class="navbar-brand" href="/">AlkeWallet</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link home active" aria-current="page" href="../index.html">Home</a>
-                    <a class="nav-link" href="menu.html">Menu</a>
-                    <a class="nav-link" href="deposit.html">Deposit</a>
-                    <a class="nav-link active" aria-current="page" href="sendMoney.html">Send Money</a>
-                    <a class="nav-link" href="transactions.html">Transactions</a>
-                    <a class="nav-link login" href="login.html">Login</a>
-                    <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
-                </div>
-            </div>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-sm fixed-top">
+    <div class="container text-light">
+      <a class="navbar-brand" href="/">AlkeWallet</a>
+      <span class="navbar-text text-white" id="saludo"></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link home active" aria-current="page" href="../index.html">Home</a>
+          <a class="nav-link" href="menu.html">Menu</a>
+          <a class="nav-link" href="deposit.html">Deposit</a>
+          <a class="nav-link active" aria-current="page" href="sendMoney.html">Send Money</a>
+          <a class="nav-link" href="transactions.html">Transactions</a>
+          <a class="nav-link login" href="login.html">Login</a>
+          <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
         </div>
-    </nav>
-    <!-- header -->
-    <header class="pt-5 pb-3 mt-5">
-        <h1 class="text-center">Depositar</h1>
-    </header>
-    <!-- main -->
-    <main class="container rounded d-grid mb-5" id="sendMoney-container">
-        <section class="sendmoney-section row justify-content-center glass p-5">
-            <div class="col-12 col-sm-10 col-md-8 ">
+      </div>
+    </div>
+  </nav>
+  <!-- header -->
+  <header class="pt-5 pb-3 mt-5">
+    <h1 class="text-center">Transactions</h1>
+  </header>
+  <!-- main -->
+  <main class="container rounded d-grid mb-5" id="sendMoney-container">
+    <section class="sendMoney-section row justify-content-center glass p-5">
+      <div class="col-12 col-sm-10 col-md-8 ">
 
-                <!-- BLOQUE 1: Agregar nuevo contacto (Modal) -->
-                <div
-                    class="d-flex justify-content-between align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
-                    <h2 class="text-white h4 mb-0">Balance de cuenta: <span id="balance"></span></h2>
+        <!-- BLOQUE 1: saldo actual -->
+        <div class="d-flex justify-content-between align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
+          <span id="balance" class="text-white h4 mb-0">Saldo : $</span>
+        </div>
 
-                </div>
+        <!-- BLOQUE 2: tabla de transacciones-->
+        
+        
+        <form id="form-transferir" class="form-control needs-validation d-block bg-light bg-opacity-10 p-4">
+            <!-- Lista de transacciones dinámica -->
+         
+          <!-- <h2 class="text-white h4 my-3"> <span id="transaction-span"></span>
+            <!-- SVG en línea en lugar de la imagen PNG -->
+            <!-- <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-people">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </h2>
+          <input type="text" class="form-control mb-3" id="recipient" placeholder="Buscar contacto..." required /> -->
+ 
+          <!-- Lista de contactos dinámicos -->
+          <ul class="list-group mb-4" id="lista-contactos">
+            <!-- Los contactos del localStorage se cargarán aquí -->
+            <!-- Ejemplos como respaldo visual inicial -->
+          </ul>
 
-                <!-- BLOQUE 2: Formulario Principal de Transferencia -->
-                <form id="form-transferir" class="form-control needs-validation justify-content-between align-items-center mb-4  border rounded bg-light bg-opacity-10 row g5 my5" >
-                    <!-- Seleccionar contacto existente -->
-                    <h2 class="text-white h4 my-5"> <span>Elige una tarjeta para depositar dinero a tu cuenta</span>
-                        <div class="form-check form-check-inline d-flex justify-content-around" role="group"
-                            aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off"
-                                checked>
-                            <label class="btn" for="option5"> ITAU</label>
+          <!-- Monto a transferir  -->
+          <div class="input-group mb-3">
+            <!-- <label for="monto-transferir" class="form-label text-white h4">Monto a transferir:</label> -->
+            <input type="number" id="monto-transferir" class="form-control" aria-label="Recipient’s username"
+              aria-describedby="button-addon2" placeholder="Monto en CLP" required>
+            <!-- Botón submit para transferir dinero -->
+            <button type="submit" id="button-addon2" class=" btn btn-info text-light-emphasis ">
+              Transferir
+            </button>
+          </div>
 
-                            <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
-                            <label class="btn" for="option6"> FALABELLA</label>
 
-                            <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off">
-                            <label class="btn" for="option7"> BANCO CHILE</label>
 
-                            <input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
-                            <label class="btn" for="option8"> BANCO ESTADO</label>
-                        </div>                      
-                </form>
-                <form class="form-control needs-validation d-block bg-light bg-opacity-10 p-4" id="form-deposito"
-                    novalidate>
-                    <!-- agregar clases is-valid o is-invalid junto a form-control con javascript -->
-                    <div class="input-group pb-3">
-                        <input type="number" class="form-control" id="monto" name="monto" placeholder="Enter amount"
-                            aria-label="Recipient’s username" aria-describedby="button-addon2" required min="500">
-                        <!-- fraces de validacion se muestran al cambiar clases is-valid o is-invalid -----
-                            Buscar como modificar tipo de moneda en aria label -->
-                        <div class="invalid-feedback">Please enter a valid amount.</div>
-                        <div class="valid-feedback">Looks good!</div>
-                        <button type="submit" id="button-addon2"
-                            class=" btn btn-info text-light-emphasis ">Depositar</button>
+          <!-- Botón para volver al menú -->
+          <button type="button" class="btn btn-outline-light w-100 my-3">
+            <a href="menu.html" class="text-light text-decoration-none d-block w-100">Volver al Menu</a>
+          </button>
+        </form>
 
-                    </div>
-                </form>
-                
+      </div>
+    </section>
+
+
+
+
+    <!-- ========================================== -->
+    <!-- MODAL DE BOOTSTRAP (AGREGAR NUEVO CONTACTO) -->
+    <!-- ========================================== -->
+    <div class="modal fade" id="modalNuevoContacto" tabindex="-1" aria-labelledby="modalContactoLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalContactoLabel">Registrar Nuevo Contacto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="form-modal-contacto">
+            <div class="modal-body">
+
+              <div class="mb-3">
+                <label for="reg-nombre" class="form-label">Nombre Completo</label>
+                <input type="text" id="reg-nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-rut" class="form-label">RUT</label>
+                <input type="text" id="reg-rut" class="form-control" id="rut" title="Formato RUT" pattern="^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$" placeholder="12.345.678-K"  required>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-banco" class="form-label">Banco</label>
+                <select id="reg-banco" class="form-select" required>
+                  <option value="" selected disabled>Selecciona un banco</option>
+                  <option value="Banco de Chile">Banco de Chile</option>
+                  <option value="Banco Estado">Banco Estado</option>
+                  <option value="Banco Santander">Banco Santander</option>
+                  <option value="BCI">BCI</option>
+                  <option value="Scotiabank">Scotiabank</option>
+                  <option value="Mach / Cuenta RUT">Mach / Cuenta RUT</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-tipo" class="form-label">Tipo de Cuenta</label>
+                <select id="reg-tipo" class="form-select" required>
+                  <option value="Cuenta Corriente">Cuenta Corriente</option>
+                  <option value="Cuenta Vista / RUT">Cuenta Vista / RUT</option>
+                  <option value="Cuenta de Ahorro">Cuenta de Ahorro</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-cuenta" class="form-label">Número de Cuenta</label>
+                <input type="number" id="reg-cuenta" class="form-control" placeholder="Ej. 123456789" required>
+              </div>
 
             </div>
-        </section>
-    </main>
-    <!-- footer -->
-    <!-- <footer class="container-fluid  bg-black p-3 px-0">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Guardar Contacto</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- footer -->
+  <!-- <footer class="container-fluid  bg-black p-3 px-0">
     <section class="footer-section bottom-0 row text-center px-5">
 
       <ul class="footer-links col">
@@ -115,13 +186,11 @@
     </section>
   </footer> -->
 
-    <!-- scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <!-- js propio -->
-    <script src="../assets/js/nav.js"></script>
-    <script src="../assets/js/sendMoney.js"></script>
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <!-- js propio -->
 </body>
 
 </html>
