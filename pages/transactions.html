@@ -11,10 +11,12 @@
   <link rel="stylesheet" href="../assets/css/alkewallet.css" />
 </head>
 
+<!-- data-bs-theme="dark" agregar js para los colores -->
+
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-sm fixed-top">
-    <div class="container text-light">
+  <nav class="navbar navbar-expand-lg bg-dark opacity-75">
+    <div class="container text-light ">
       <a class="navbar-brand" href="/">AlkeWallet</a>
       <span class="navbar-text text-white" id="saludo"></span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -24,10 +26,10 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <a class="nav-link home" href="../index.html">Home</a>
-          <a class="nav-link" href="menu.html">Menu</a>
+          <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
           <a class="nav-link" href="deposit.html">Deposit</a>
           <a class="nav-link" href="sendMoney.html">Send Money</a>
-          <a class="nav-link active" aria-current="page" href="transactions.html">Transactions</a>
+          <a class="nav-link" href="transactions.html">Transactions</a>
           <a class="nav-link login" href="login.html">Login</a>
           <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
         </div>
@@ -35,49 +37,32 @@
     </div>
   </nav>
 
-  <header class="pt-5 pb-3 mt-5">
-    <h1 class="text-center">Ultimos movimientos</h1>
-  </header>
 
-  <main class="container rounded d-grid" id="transactions-container">
-    <section class="transactions-section row justify-content-center">
-      <div class="col-12 col-sm-10 col-md-8">
-        <h2 class="text-center">
-          Balance de cuenta: $ <span id="balance">0</span>
-        </h2>
-        <ul class="list-group" id="transactions-ul">
-          <li class="list-group-item">Compra en linea - $50.00</li>
-          <li class="list-group-item">Deposito - $100.00</li>
-          <li class="list-group-item">Compra en linea - $55550.00</li>
-          <li class="list-group-item">Transferencia recibidda - $75.00</li>
-          <li class="list-group-item">Deposito misma cueenta - $10500.00</li>
-        </ul>
+  <main class="container rounded d-grid mb-5 p-3" id="menu-container">
+
+    <section class="transactions-section row justify-content-center glass py-3">
+      <div class="col-12 col-lg-10 ">
+        <!-- BLOQUE 0: BALANCE -->
+        <div class="d-flex justify-content-around align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
+          <div class="p-4">
+            <h1 class="text-center text-light">Últimas Transacciones</h1>
+          </div>
+          <h2 class="text-white h4 p-1 mb-0">
+            Saldo disponible : <span id="balance"></span>
+          </h2>
+        </div>
+
+        <!-- BLOQUE 2: Lista de transacciones -->
+        <div class="mb-3 p-3 border rounded bg-light bg-opacity-10">
+          <ul class="list-group" id="transactions-ul">
+            <!-- Las transacciones se cargan dinamicamente con js -->
+          </ul>
+        </div>
       </div>
     </section>
   </main>
-  <!-- footer -->
-  <!-- <footer class="container-fluid bottom-0 bg-black p-3 px-0">
-    <section class="footer-section bottom-0 row text-center px-5">
 
-      <ul class="footer-links col">
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
 
-      <ul class="footer-rrss col">
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/facebook.png" alt="Facebook" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/twitter.png" alt="Twitter" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/linkedin.png" alt="LinkedIn" /></a></li>
-      </ul>
-
-      <ul class="footer-contact col">
-        <li><a href="#">Email:</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-
-    </section>
-  </footer> -->
 
   <!-- scripts -->
 

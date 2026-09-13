@@ -1,5 +1,11 @@
 
 currentUser ? (console.log("menu", currentUser)) : location.href = "login.html";
 const balance = document.getElementById("balance");
+const balanceSpan = document.getElementById("balance");
 
-currentUser.balance ? balance.textContent = currentUser.balance.toLocaleString("es-CL") : balance.textContent = "0".toLocaleString("es-CL");
+const saldoActual = currentUser.balance;
+// mostrar saldo cuenta balnac.toLocaleString("es-CL")
+balanceSpan.textContent += `$ ${saldoActual.toLocaleString("es-CL")}`;
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

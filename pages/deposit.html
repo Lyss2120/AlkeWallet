@@ -14,7 +14,7 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-sm fixed-top">
+    <nav class="navbar navbar-expand-lg bg-dark opacity-75">
         <div class="container text-light">
             <a class="navbar-brand" href="/">AlkeWallet</a>
             <span class="navbar-text text-white" id="saludo"></span>
@@ -36,40 +36,38 @@
         </div>
     </nav>
 
-    <header class="pt-5 pb-3 mt-5">
-        <h1 class="text-center">Depositar</h1>
-    </header>
-
     <!-- depositar dinero en cuenta de alke-wallet -->
-    <main class="container rounded d-grid" id="deposit-container">
-
-        <section class="deposit-section row justify-content-center glass p-5">
-            <div class="col-12 col-sm-10 col-md-8 ">
-                <!-- BLOQUE 1: BALANCE -->
+    <main class="container rounded d-grid mb-5 p-3" id="deposit-container">
+        <section class="deposit-section row justify-content-center glass py-3">
+            <div class="col-12 col-lg-10 ">
+                <!-- BLOQUE 0: BALANCE -->
                 <div
-                    class="d-flex justify-content-between align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
-                    <h2 class="text-center h4 p-1 mb-0">
-                        Balance de cuenta: <span id="balance"></span>
+                    class="d-flex justify-content-around align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
+                    <div class="p-4">
+                        <h1 class="text-center text-light">Depositar</h1>
+                    </div>
+                    <h2 class="text-white h4 p-1 mb-0">
+                        Saldo disponible : <span id="balance"></span>
                     </h2>
                 </div>
                 <!-- BLOQUE 2: SELECCION DE TARJETA -->
                 <div class="d-block bg-light bg-opacity-10 p-4 border rounded bg-light bg-opacity-10">
-                    <h3 class="text-white h4 my-3">Elegir tarjeta para depositar a tu wallet: </h3>
+                    <h3 class="text-white h4 my-3">Elige una tarjeta para cargar tu wallet: </h3>
                     <!-- Grupo de tarjetas como checkbox dejar flex-column en sm-->
-                    <div class="form-check form-check-inline   d-flex justify-content-around  p-3" role="group"
-                        aria-label="Basic radio toggle button group">
+                    <div class="form-check form-check-inline text-light  d-flex justify-content-around  p-3"
+                        role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off"
                             checked>
-                        <label class="btn" for="option5"> ITAU</label>
+                        <label class="btn text-light" for="option5"> ITAU</label>
 
                         <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
-                        <label class="btn" for="option6"> FALA</label>
+                        <label class="btn text-light" for="option6"> FALA</label>
 
                         <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off">
-                        <label class="btn" for="option7"> CHIL</label>
+                        <label class="btn text-light" for="option7"> CHIL</label>
 
                         <input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
-                        <label class="btn" for="option8"> ESTA</label>
+                        <label class="btn text-light" for="option8"> ESTA</label>
                     </div>
 
 
@@ -85,7 +83,7 @@
                             <div class="invalid-feedback">Please enter a valid amount.</div>
                             <div class="valid-feedback">Looks good!</div>
                             <button type="submit" id="button-addon2"
-                                class=" btn btn-info text-light-emphasis ">Depositar</button>
+                                class=" btn btn-light text-light-emphasis ">Depositar</button>
 
                         </div>
                     </form>
