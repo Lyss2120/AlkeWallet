@@ -19,111 +19,121 @@
 </head>
 
 <body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-dark opacity-75">
-    <div class="container text-light">
-      <a class="navbar-brand" href="/">AlkeWallet</a>
-      <span class="navbar-text text-white" id="saludo"></span>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-control h4 text-lights="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- NAV BAR (Estilo moderno, translúcido y limpio) -->
+  <nav class="navbar navbar-expand-lg navbar-dark glass-effect rounded col-12 col-lg-11 mx-auto my-3 px-3 shadow-lg">
+    <div class="container-fluid">
+      <!-- Logo / Marca de la app -->
+      <a class="navbar-brand fw-bold fs-4 text-light tracking-tight d-flex align-items-center gap-2"
+        href="./index.html">
+        <span>Alkewallet</span>
+      </a>
+
+      <!-- Botón responsive para móviles -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link home" href="../index.html">Home</a>
-          <a class="nav-link" href="menu.html">Menu</a>
-          <a class="nav-link" href="deposit.html">Deposit</a>
-          <a class="nav-link" href="sendMoney.html">Send Money</a>
-          <a class="nav-link" href="transactions.html">Transactions</a>
-          <a class="nav-link active login" aria-current="page" href="login.html">Login</a>
-          <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
-        </div>
+
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center gap-2 mt-3 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-light opacity-75" href="../index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light opacity-75" href="../index.html#testimonios-section">Testimonios</a>
+          </li>
+          <li class="nav-item active ms-lg-3">
+            <!-- Botón de acceso destacado -->
+            <a href="./pages/login.html"
+              class="btn btn-sm btn-outline-light rounded-pill px-4 fw-semibold active">Ingresar</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
 
+  <!-- MAIN (Mismo código estilizado del Login) -->
+  <main class="container col-12 col-lg-6 my-5 p-0" id="login-container">
+    <!-- Reemplazamos 'glass' por tu clase unificada 'glass-effect' y añadimos bordes redondeados -->
+    <section class="login-section row justify-content-center glass-effect rounded p-4 m-0 shadow-lg">
+      <div class="col-12">
 
-  <!-- main -->
-     <main class="container rounded d-grid mb-5 p-3" id="login-container">
-
-    <section class="login-section row justify-content-center glass py-3">
-      <div class="col-12 col-lg-10 ">
-        <!-- BLOQUE : HEADER-->
-        <div class="d-flex justify-content-start align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
-          <div class="p-4 ms-5">
-            <h1 class="text- ms-5 text-light">Login</h1>
-          </div>
-
+        <!-- BLOQUE : HEADER (Simplificado y estilizado sin bordes dobles) -->
+        <div class="text-center my-4">
+          <h1 class="text-light display-5 fw-bold">Iniciar Sesión</h1>
+          <p class="text-success opacity-75">Gestiona tus finanzas en movimiento</p>
         </div>
 
-        <!-- formulario de login -->
+        <!-- Formulario de login -->
+        <form id="loginForm"
+          class="p-4 needs-validation bg-dark bg-opacity-25 rounded-3 border border-light border-opacity-10">
 
-
-        <form id="loginForm" class="p-5 form-control needs-validation d-block bg-light bg-opacity-10 p-4">
-          <!-- Seleccionar contacto existente -->
-
-          <div class="mb-3 px-5 form-group">
-            <label for="email" class="form-label  h4 text-light">Email </label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu email" required />
+          <!-- Campo: Email -->
+          <div class="mb-4">
+            <label for="email" class="form-label h5 text-light opacity-90">Email</label>
+            <input type="email" class="form-control bg-dark bg-opacity-50 text-white border-secondary" id="email"
+              name="email" placeholder="nombre@ejemplo.com" required />
           </div>
-          <div class="mb-3 px-5 form-group">
-            <label for="password" class="form-label  h4 text-light">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password"
-              placeholder="Ingresa tu contraseña" required />
+
+          <!-- Campo: Contraseña -->
+          <div class="mb-4">
+            <label for="password" class="form-label h5 text-light opacity-90">Contraseña</label>
+            <input type="password" class="form-control bg-dark bg-opacity-50 text-white border-secondary" id="password"
+              name="password" placeholder="Ingresa tu contraseña" required />
           </div>
-          <!-- checkbox para futura persistencia de datos -->
-          <div class="mb-5 px-5 form-check">
-            <input type="checkbox" class="form-check-input ms-2" name="recordarme" id="checkbox" />
-            <label class="form-check-label ms-3 h6 text-light" for="checkbox">Recordarme</label>
+
+          <!-- Checkbox: Recordarme -->
+          <div class="mb-4 form-check d-flex align-items-center gap-2">
+            <input type="checkbox" class="form-check-input m-0" name="recordarme" id="checkbox" />
+            <label class="form-check-label h6 text-light opacity-75 m-0" for="checkbox">Recordarme en este
+              dispositivo</label>
           </div>
 
           <!-- Botón de Login Principal -->
-          <button type="submit" value="Login" class="btn btn-lg btn-outline-light form-control  ">
-           Login
+          <button type="submit" class="btn btn-lg btn-light w-100 fw-semibold rounded-pill my-2 shadow-sm">
+            Ingresar
           </button>
 
-          <!-- Divisor visual -->
-          <div class="text-center my-3 position-relative">
-            <hr class="text-muted" />
-            <span class="position-absolute top-50 start-50 translate-middle bg-white px-2 text-muted  text-light small"></span>
+          <!-- Divisor visual moderno con texto 'o' -->
+          <div class="text-center my-4 position-relative">
+            <hr class="text-light opacity-25" />
+            <span
+              class="position-absolute top-50 start-50 translate-middle bg-dark px-3 text-light opacity-50 small rounded">o</span>
           </div>
 
-          <button class="text-center h2 text-light btn btn-outline-light form-control">
-            No tienes cuenta?
-            <a href="signUp.html" class="text-decoration-none text-light">Registrate aquí</a>
-          </button>
+          <!-- Enlace para registrarse -->
+          <div class="text-center">
+            <p class="text-light opacity-75 m-0">
+              ¿No tienes cuenta?
+              <a href="signUp.html"
+                class="text-success fw-semibold text-decoration-none border-bottom border-success">Regístrate aquí</a>
+            </p>
+          </div>
 
         </form>
-
-
 
       </div>
     </section>
   </main>
 
   <!-- footer -->
-  <!-- <footer class="container-fluid  bottom-0 bg-black p-3 px-0">
-    <section class=" bottom-0 row text-center px-5">
+  <footer class="glass-effect rounded col-12 col-lg-11 mx-auto my-4 py-4 px-4 bottom-0 shadow-lg">
+    <div class="container-fluid p-0">
+      <div class="row align-items-center text-center text-md-start g-3">
+        <div class="col-12 col-md-6">
+          <h5 class="text-white fw-bold mb-1">AlkeWallet</h5>
+          <p class="text-light opacity-50 small m-0">&copy; 2026 AlkeWallet. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Términos</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Privacidad</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small">Soporte</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-      <ul class="footer-links col">
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-
-      <ul class="footer-rrss col">
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/facebook.png" alt="Facebook" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/twitter.png" alt="Twitter" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/linkedin.png" alt="LinkedIn" /></a></li>
-      </ul>
-
-      <ul class="footer-contact col">
-        <li><a href="#">Email:</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-
-    </section>
-  </footer> -->
 </body>
 
 </html>

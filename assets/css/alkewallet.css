@@ -10,31 +10,178 @@ body {
     sans-serif;
 } */
 
-body {
-  background-color: #9292f8;
-  /* background-image: url("../img/3d-shapes-glowing-with-bright-holographic-colors.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  animation:  bg-animation 50s infinite alternate;
-  color: #ffffff79; */
-  font:
-    400 1rem/1.5rem "Roboto",
-    sans-serif;
-  /* background-image: linear-gradient(45deg, #13829d, #2e3eb9, #740bb6); */
-  min-height: 100vh;
-  background-size: 130% 130%;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-
-
+/* Variables Globales */
+:root {
+  --turquesa: #00f5d4;
+  --morado-energetico: #7b2cbf;
+  --purpura-acento: #9d4edd;
+  --fondo-oscuro: #4815a8;
+  --fondo-tarjeta: #711ae226;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* Fondo global */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--fondo-oscuro);
+  position: relative;
+  overflow-x: hidden; /* Evita scrolls raros por el tamaño de los orbes */
+  min-height: 100vh;
+}
+
+/* Base Orbes */
+.orbe-bg {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(15px); 
+  z-index: -2; 
+  opacity: 0.55; 
+  pointer-events: none;
+  mix-blend-mode: screen; /* Mezcla los colores cuando se cruzan */
+}
+
+/* Orbe 1: Turquesa gigante (Animación flotante suave) */
+.orbe-1 {
+  width: 600px;
+  height: 600px;
+  background-color: var(--turquesa);
+  top: 5%;
+  left: -15%;
+  animation: flotarOrbeUno 22s ease-in-out infinite alternate;
+}
+
+/* Orbe 2: Morado Energético (Se mueve en sentido opuesto) */
+.orbe-2 {
+  width: 700px;
+  height: 700px;
+  background-color: var(--morado-energetico);
+  top: 35%;
+  right: -20%;
+  animation: flotarOrbeDos 28s ease-in-out infinite alternate;
+}
+
+/* Orbe 3: Púrpura Acento (Órbita lenta abajo) */
+.orbe-3 {
+  width: 550px;
+  height: 550px;
+  background-color: var(--purpura-acento);
+  bottom: 10%;
+  left: 10%;
+  animation: flotarOrbeTres 25s ease-in-out infinite alternate;
+}
+
+/* ── Animaciones de Flotación Líquida (Keyframes) ── */
+/* 
+@keyframes flotarOrbeUno {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(80px, 60px) scale(1.1);
+  }
+  100% {
+    transform: translate(-40px, 120px) scale(0.9);
+  }
+}
+
+@keyframes flotarOrbeDos {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-100px, -80px) scale(0.95);
+  }
+  100% {
+    transform: translate(50px, 40px) scale(1.15);
+  }
+}
+
+@keyframes flotarOrbeTres {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(60px, -90px) scale(1.05);
+  }
+  100% {
+    transform: translate(-70px, -30px) scale(0.95);
+  }
+} */
+
+/* Glassmorphism */
+.glass-effect {
+  /* Doble fondo: Capa 1 es el reflejo de luz diagonal (blanco sutil); Capa 2 es la base polarizada oscura (negra) */
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5) 100%),
+    rgba(0, 0, 0, 0.45) !important; /* Base negra translúcida que oscurece el fondo */
+  
+  /* Esmerilado de alta definición para difuminar los orbes de fondo */
+  backdrop-filter: blur(25px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(140%) !important;
+  
+  /* Borde de cristal: simula el canto pulido e iluminado */
+  border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.4) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important;
+  
+  /* Sombra externa profunda + Sombra interna para el destello del borde superior */
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15) !important;
+
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efecto hover: se oscurece un poco más y se intensifica el reflejo superior */
+.glass-effect:hover {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.6) 100%),
+    rgba(0, 0, 0, 0.55) !important;
+  
+  border-top-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Glassmorphism específico para tarjetas internas de testimonios */
+.testimonios .card {
+  background: var(--fondo-tarjeta) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.testimonios .card:hover {
+  background: 
+    linear-gradient(135deg, rgba(254, 254, 254, 0.12) 0%, rgba(62, 154, 8, 0.2) 40%, rgba(139, 14, 223, 0.824) 100%),
+    rgba(242, 96, 86, 0.758) !important;
+  
+  border-top-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Ajustes de contraste para los botones sobre el Glass */
+.text-success {
+  color: var(--turquesa) !important;
+}
+
+.hero-background {
+  background: linear-gradient(rgba(65, 9, 114, 0.6), rgba(7, 2, 86, 0.6)), 
+              url('../img/pexels-spoton-pos-2160258094-37594378.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 70vh; 
+}
+.hero-background .navbar {
+  background: var(--fondo-oscuro)!important;
+  opacity: 0.85;
+    backdrop-filter: blur(25px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(140%) !important;
+
 }
 /* 
 .hero-section{
@@ -89,9 +236,8 @@ body {
     background-position: 10% 70%;
   }
 } */
-.list{
+.list {
   background-color: #1c1a1e00;
   color: #ffffff;
   font-size: 1.3rem;
-
 }

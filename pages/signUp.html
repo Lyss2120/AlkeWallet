@@ -19,24 +19,32 @@
 </head>
 
 <body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-sm fixed-top">
-    <div class="container text-light">
-      <a class="navbar-brand" href="/">AlkeWallet</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+  <!-- Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark glass-effect rounded col-12 col-lg-10 mx-auto my-3 px-3 shadow-lg">
+    <div class="container-fluid">
+      <!-- Logo  -->
+      <a class="navbar-brand fw-bold fs-4 text-light tracking-tight d-flex align-items-center gap-2" href="../index.html">
+        <span>Alkewallet</span>
+      </a>
+      <span class="navbar-text text-success fw-semibold ms-2" id="saludo"></span>
+
+      <!-- Botón responsive para móviles -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link home" href="../index.html">Home</a>
-          <a class="nav-link" href="menu.html">Menu</a>
-          <a class="nav-link" href="deposit.html">Deposit</a>
-          <a class="nav-link" href="sendMoney.html">Send Money</a>
-          <a class="nav-link" href="transactions.html">Transactions</a>
-          <a class="nav-link login" href="login.html">Login</a>
-          <!-- agregar logout -->
-          <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
+
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav align-items-center gap-2 mt-3 mt-lg-0">
+          <a class="nav-link text-light opacity-75" href="../index.html">Inicio</a>
+          <a class="nav-link text-light fw-bold active text-success" href="./menu.html">Menú</a>
+          <a class="nav-link text-light opacity-75" href="./deposit.html">Depositar</a>
+          <a class="nav-link text-light opacity-75" href="./sendMoney.html">Enviar Dinero</a>
+          <a class="nav-link text-light opacity-75" href="./transactions.html">Transacciones</a>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-sm btn-outline-light rounded-pill px-4 fw-semibold" href="login.html">Ingresar</a>
+          </li>
         </div>
       </div>
     </div>

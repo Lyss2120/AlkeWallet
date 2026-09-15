@@ -1,178 +1,178 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AlkeWallet</title>
   <!-- fav icon -->
-  <link rel="icon" type="image/png" href="/assets/img/aw-logo.png" />
-  <!-- bootstrap -->
+  <link rel="icon" type="image/png" href="./assets/img/aw-logo.png" />
+  <!-- bootstrap 5.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
   <!-- css -->
   <link rel="stylesheet" href="../assets/css/alkewallet.css" />
 </head>
 
-<body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-sm   py-3">
-    <div class="container ">
-      <a class="navbar-brand  " href="/">AlkeWallet</a>
-      <span class="navbar-text text-white" id="saludo"></span>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+<body class="text-light">
+<div class="hero-background">
+
+  <nav class="navbar navbar-expand-lg navbar-dark col-12 col-lg-10 glass-effect rounded  mx-auto  px-3 shadow-lg">
+    <div class="container-fluid">
+      <!-- Logo / Marca de la app -->
+      <a class="navbar-brand fw-bold fs-4 text-light tracking-tight d-flex align-items-center gap-2"
+        href="./index.html">
+        <span>Alkewallet</span>
+      </a>
+
+      <!-- Botón responsive para móviles -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link home active" aria-current="page" href="index.html">Home</a>
-          <a class="nav-link" href="./pages/menu.html">Menu</a>
-          <a class="nav-link" href="./pages/deposit.html">Deposit</a>
-          <a class="nav-link" href="./pages/sendMoney.html">Send Money</a>
-          <a class="nav-link" href="./pages/transactions.html">Transactions</a>
-          <a class="nav-link login" href="./pages/login.html">Login</a>
 
-          <!-- si esta logueado mostrar avatar + saludo y logout -->
-          <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav align-items-center gap-2 mt-3 mt-lg-0">
+          <a class="nav-link text-light opacity-75" aria-current="page" href="./index.html">Inicio</a>
+          <a class="nav-link text-light opacity-75" href="./pages/menu.html">Menú</a>
+          <a class="nav-link text-light opacity-75" href="./pages/deposit.html">Depositar</a>
+          <a class="nav-link text-light opacity-75" href="./pages/sendMoney.html">Enviar Dinero</a>
+          <a class="nav-link text-light opacity-75" href="./pages/transactions.html">Transacciones</a>
+          <li class="nav-item ms-lg-3 login btn btn-sm btn-outline-info text-success rounded-pill px-4 fw-semibold" href="./pages/login.html">
+            Ingresar
+          </li>
         </div>
       </div>
     </div>
   </nav>
-  <!-- header -->
-  <header class="hero-section">
-    <div class="p-5 mx-5 row">
 
-      <div class="col">
-        <h1 class="hero-heading text-start pt-5 pb-3 lh-base mt-2 text-capitalize">
-          <span class="text-bold text-xl-start">Finanzas en movimiento.</span>
-          <div class="text-info mt-3">Tu dinero,</div>
-          <div class="text-info">a tu manera. 🚀</div>
-        </h1>
 
-        <div class="subheading-action pb-4">
-          <h2 class="subheading fs-3 lh-base">
-            <div>Gestiona, ahorra y multiplica tus ingresos <br> desde una sola
-              aplicación.</div>
-            <div>Sin burocracia, sin sucursales</div>
-            <div class=""> y con total libertad.</div>
-            <!-- <div>Descubre la nueva forma de manejar tu dinero.</div> -->
-          </h2>
-          <div class=" py-2">
-            <button class="btn rounded-pill btn-info my-3 action-button">
-              <a href="login.html" class="text-decoration-none text-white"> Crea tu cuenta gratis</a>
-            </button>
-            <button class="btn rounded-pill btn-outline-info my-3">
-              Saber más
-            </button>
-          </div>
+  <!-- Tres Orbes de color flotando en el fondo general -->
+  <div class="orbe-bg orbe-1"></div>
+  <div class="orbe-bg orbe-2"></div>
+  <div class="orbe-bg orbe-3"></div>
+
+  <!-- header (Hero Section) con Efecto Glassmorphism -->
+
+
+  <header class="hero-section p-md-5 my-4 rounded ">
+    <div class=" row m-0">
+
+      <!-- 
+      col-lg-6: Ocupa exactamente la mitad derecha en pantallas grandes.
+      offset-lg-6: Deja vacía la mitad izquierda, forzando al contenido a iniciar justo en el centro.
+      text-start: Hace que el texto se alinee de forma natural a la izquierda dentro de su mitad.
+    -->
+      <div class="col-12 col-lg-6 offset-lg-3 px-4 px-md-5 my-sm-5 text-start">
+
+        <!-- Contenedor del título y subtítulos -->
+        <div class="hero-heading text-capitalize mb-4">
+          <h1 class="display-4 lh-sm text-light fw-bold">Finanzas en movimiento</h1>
+          <div class="text-light h4 mt-3 opacity-75">Tu dinero</div>
+          <div class="text-light h4 fw-semibold text-success">a tu manera 🚀</div>
         </div>
-      </div>
-      <!-- hero-img -->
-      <div class="hero-img col m-auto justify-content-center align-self-center">
-        <figure class="d-grid justify-content-center align-self-center">
-          <img src="../assets/img/icons/262507/ICO/512/moneda.png" alt="hero image" class="hero-image img-fluid" />
-        </figure>
+
+        <!-- Contenedor de botones alineados al inicio de su columna (el centro de la pantalla) -->
+        <div class="d-flex gap-2 justify-content-start align-items-center">
+          <a href="./pages/login.html" class="btn btn-sm btn-info rounded-pill px-4 fw-semibold">Comienza hoy</a>
+          <button class="btn btn-sm btn-outline-info rounded-pill px-4 fw-semibold">Saber más</button>
+        </div>
+
       </div>
 
     </div>
   </header>
-  <!-- main -->
-  <main class="container-fluid p-5 rounded d-grid" id="home-container">
-    <section class="conocenos row h-100 py-5  rounded">
-      <div class="col justify-content-center align-self-center">
-        <div class="card  text-center">
+</div>
 
-          <div class="card-body ">
-            <h5>kkkkkkk</h5>
-            <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, recusandae, magnam sit architecto
-              pariatur a similique sapiente, veritatis iste reprehenderit eaque laudantium et velit fugit delectus.
-              Quibusdam optio nemo mollitia.
-              Animi explicabo nostrum commodi quasi tempora nobis consectetur quae vitae aliquam necessitatibus!
-              Facere rem architecto ad, officiis facilis asperiores quasi porro provident iure modi sed. Nemo quos ea
-              rerum nisi!
-              Ad, rem laudantium commodi quo magni iure corrupti doloremque harum fugiat cumque impedit facilis,
-              excepturi consequatur. Quam magni et quasi animi, assumenda molestias nobis est a itaque ipsam
-              perferendis nisi.</h6>
+  <!-- Main con Efecto Glassmorphism -->
+  <main class="container p-4 p-md-5 rounded col-12 col-lg-10 my-5 glass-effect" id="home-container">
+
+    <!-- Sección: Beneficios -->
+    <section class="beneficios my-5 row row-cols-1 row-cols-lg-2 align-items-center rounded">
+      <div class="col">
+        <div class="card bg-transparent border-0">
+          <div class="card-body text-center p-0">
+            <h2 class="card-title lh-sm text-white display-6 fw-semibold">Pagos y transferencias en un solo toque.</h2>
+            <div class="card-text lh-sm text-light opacity-75 fs-5 mt-3">
+              <p class="text-success">Olvídate de las filas y los procesos lentos. </p>
+              <p class="text-light">Envía dinero a tus amigos, </p>
+              <p class="text-success">paga tus servicios públicos y recarga tu saldo al instante, </p>
+              <p class="text-light"> sin comisiones ocultas y con disponibilidad 24/7.</p>
+            </div>
           </div>
-
         </div>
       </div>
-
-      <div class="col justify-content-center align-self-center">
-        <div class="hero-img m-auto ">
-          <figure class="d-grid justify-content-center align-self-center">
-            <img src="../assets/img/icons/262507/ICO/512/moneda.png" alt="hero image" class="hero-image img-fluid" />
+      <div class="col text-center mt-4 mt-lg-0">
+        <div class="hero-img p-3">
+          <figure class="m-0">
+            <img src="./assets/img/icons/metodo-de-pago.png" alt="Método de pago"
+              class="hero-image img-fluid w-50 w-lg-75" />
           </figure>
         </div>
       </div>
-
     </section>
-    <section class="beneficios row h-100 p-5 bg-primary rounded">
-      <div class="col justify-content-center align-self-center">
-        <div class="hero-img m-auto ">
-          <figure class="d-grid justify-content-center align-self-center">
-            <img src="../assets/img/icons/262507/ICO/512/moneda.png" alt="hero image" class="hero-image img-fluid" />
+
+    <!-- Sección: Confianza -->
+    <section class="confianza my-5 row row-cols-1 row-cols-lg-2 align-items-center rounded">
+      <div class="col text-center order-last order-lg-first mt-4 mt-lg-0">
+        <div class="hero-img p-3">
+          <figure class="m-0">
+            <img src="./assets/img/icons/301177_shield-checkmark-icon.png" alt="Escudo de confianza"
+              class="hero-image img-fluid w-50 w-lg-75" />
           </figure>
         </div>
       </div>
-      <div class="col justify-content-center align-self-center">
-        <div class="card text-center">
-
-          <div class="card-body">
-            <h5>kkkkkkk</h5>
-            <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, recusandae, magnam sit architecto
-              pariatur a similique sapiente, veritatis iste reprehenderit eaque laudantium et velit fugit delectus.
-              Quibusdam optio nemo mollitia.
-              Animi explicabo nostrum commodi quasi tempora nobis consectetur quae vitae aliquam necessitatibus!
-              Facere rem architecto ad, officiis facilis asperiores quasi porro provident iure modi sed. Nemo quos ea
-              rerum nisi!
-              Ad, rem laudantium commodi quo magni iure corrupti doloremque harum fugiat cumque impedit facilis,
-              excepturi consequatur. Quam magni et quasi animi, assumenda molestias nobis est a itaque ipsam
-              perferendis nisi.</h6>
+      <div class="col">
+        <div class="card bg-transparent border-0 text-lg-end">
+          <div class="card-body text-center p-0">
+            <h2 class="card-title lh-sm text-white display-6 fw-semibold">Tu dinero protegido con tecnología bancaria.
+            </h2>
+            <div class="card-text lh-sm text-light opacity-75 fs-5 mt-3">
+              <p class="text-light"> Mantenemos tus fondos y datos seguros </p>
+              <p class="text-success">mediante encriptación avanzada </p>
+              <p class="text-light"> y autenticación biométrica de última generación.
+            </div>
           </div>
-
         </div>
       </div>
     </section>
-    <section class="testimonios row h-100 p-5  rounded">
-      <h2 class="testimonios-h2 text-center pb-4">Testimonios</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col shadow-lg">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-body-secondary">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
-        <div class="col shadow-lg">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-body-secondary">Last updated 3 mins ago</small>
+
+    <!-- Sección: Testimonios -->
+    <section class="testimonios mt-5 py-5 rounded" id="testimonios-section">
+      <h2 class="testimonios-h2 mb-5 text-center text-white display-6 fw-bold">Por esto nos eligen 🚀</h2>
+      <div class="container mt-4 py-lg-4">
+        <div class="row row-cols-1 row-cols-lg-3 g-4 ">
+          <!-- Testimonio 1 -->
+          <div class="col">
+            <div class="card h-100 shadow-lg border-0 text-white">
+              <div class="card-body p-3">
+                <h6 class="card-title text-success mb-1 fs-5">Mario Delgado</h6>
+                <p class="card-text text-light small opacity-75">"La seguridad era lo que más me preocupaba, pero el
+                  sistema de encriptación y el ingreso biométrico me dan total tranquilidad."</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col shadow-lg">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This card has even longer content than the first to show that equal height action.</p>
+          <!-- Testimonio 2 -->
+          <div class="col">
+            <div class="card h-100 shadow-lg border-0 text-white">
+              <div class="card-body p-3">
+                <h6 class="card-title text-success mb-1 fs-5">Carlos Mendoza</h6>
+                <p class="card-text text-light small opacity-75">"Poder recargar mi saldo 24/7 y sin comisiones ocultas
+                  ha cambiado por completo la forma en que manejo mis gastos diarios."</p>
+              </div>
             </div>
-            <div class="card-footer">
-              <small class="text-body-secondary">Last updated 3 mins ago</small>
+          </div>
+          <!-- Testimonio 3 -->
+          <div class="col">
+            <div class="card  h-100 shadow-lg border-0 text-white">
+              <div class="card-body p-3">
+                <h6 class="card-title text-success mb-1 fs-5">Laura Fernandez</h6>
+                <p class="card-text text-light small opacity-75">"Olvídate de las filas. Envío dinero a mis amigos y
+                  pago mis servicios al instante. La interfaz es súper limpia y rápida."</p>
+              </div>
             </div>
           </div>
         </div>
@@ -180,38 +180,28 @@
     </section>
 
   </main>
-  <!-- footer -->
-  <footer class="container-fluid bottom-0 bg-black p-3 px-0">
-    <section class="footer-section bottom-0 row text-center px-5">
 
-      <ul class="footer-links col">
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
 
-      <ul class="footer-rrss col">
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/facebook.png" alt="Facebook" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/twitter.png" alt="Twitter" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/linkedin.png" alt="LinkedIn" /></a></li>
-      </ul>
-
-      <ul class="footer-contact col">
-        <li><a href="#">Email:</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-
-    </section>
+  <!-- Footer -->
+  <footer class="glass-effect rounded col-12 col-lg-10 mx-auto my-4 bottom-0 py-4 px-4 shadow-lg">
+    <div class="container-fluid p-0">
+      <div class="row align-items-center text-center text-md-start g-3">
+        <div class="col-12 col-md-6">
+          <h5 class="text-white fw-bold mb-1">AlkeWallet</h5>
+          <p class="text-light opacity-50 small m-0">&copy; 2026 AlkeWallet. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Términos</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Privacidad</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small">Soporte</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- scripts -->
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+  <!-- Bootstrap JS (Esencial para que el Navbar desplegable funcione en móviles) -->
+  <script src="https://jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <!-- js propio -->
-  <script src="../assets/js/nav.js"></script>
-  <script src="../assets/js/index.js"></script>
 </body>
 
 </html>

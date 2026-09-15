@@ -11,150 +11,169 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../assets/css/alkewallet.css" />
 
+  <!-- scripts -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <!-- js propio -->
+  <script defer src="../assets/js/nav.js"></script>
+  <script defer src="../assets/js/menu.js"></script>
+
 </head>
 
+
 <body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-dark opacity-75">
-    <div class="container text-light ">
-      <a class="navbar-brand" href="/">AlkeWallet</a>
-      <span class="navbar-text text-white" id="saludo"></span>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+  <!-- Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark glass-effect rounded col-12 col-lg-10 mx-auto my-3 px-3 shadow-lg">
+    <div class="container-fluid">
+      <!-- Logo  -->
+      <a class="navbar-brand fw-bold fs-4 text-light tracking-tight d-flex align-items-center gap-2" href="../index.html">
+        <span>Alkewallet</span>
+      </a>
+      <span class="navbar-text text-success fw-semibold ms-2" id="saludo"></span>
+
+      <!-- Botón responsive para móviles -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link home" href="../index.html">Home</a>
-          <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
-          <a class="nav-link" href="deposit.html">Deposit</a>
-          <a class="nav-link" href="sendMoney.html">Send Money</a>
-          <a class="nav-link" href="transactions.html">Transactions</a>
-          <a class="nav-link login" href="login.html">Login</a>
-          <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
+
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav align-items-center gap-2 mt-3 mt-lg-0">
+          <a class="nav-link text-light opacity-75" href="../index.html">Inicio</a>
+          <a class="nav-link text-light fw-bold active text-success" aria-current="page" href="menu.html">Menú</a>
+          <a class="nav-link text-light opacity-75" href="deposit.html">Depositar</a>
+          <a class="nav-link text-light opacity-75" href="sendMoney.html">Enviar Dinero</a>
+          <a class="nav-link text-light opacity-75" href="transactions.html">Transacciones</a>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-sm btn-outline-light rounded-pill px-4 fw-semibold" href="login.html">Ingresar</a>
+          </li>
         </div>
       </div>
     </div>
   </nav>
 
-
-
-  <main class="container rounded d-grid mb-5 p-3" id="menu-container">
-
-    <section class="menu-section row justify-content-center glass py-3">
-      <div class="col-12 col-lg-10 ">
+  <!-- MAIN (Panel de Control Principal del Usuario) -->
+  <main class="container col-12 col-lg-10 my-5 p-0" id="menu-container">
+    <section class="menu-section row justify-content-center glass-effect rounded p-4 m-0 shadow-lg">
+      <div class="col-12">
+        
         <!-- BLOQUE 0: BALANCE -->
-        <div class="d-flex justify-content-around align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
-          <div class="p-4">
-            <h1 class="text-center text-light">Menú Principal</h1>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 p-4 rounded-3 bg-dark bg-opacity-25 border border-light border-opacity-10 gap-3">
+          <div class="text-center text-md-start">
+            <h1 class="text-light h2 fw-bold mb-0">Menú Principal</h1>
+            <p class="text-success opacity-75 small mb-0">Bienvenido de vuelta a tu espacio financiero</p>
           </div>
-          <h2 class="text-white h4 p-1 mb-0">
-            Saldo disponible : <span id="balance"></span>
-          </h2>
-        </div>
-        <!-- BLOQUE 1: opciones menu -->
-        <div
-          class="grid gap-lg-5  gap-2 justify-content-md-center  text-center mb-3 p-4  border rounded bg-light bg-opacity-10">
-          <!-- Depositar -->
-          <a href="./deposit.html" class="btn btn-outline-light col-md-auto m-4 ">
-            <i class="bi bi-wallet2 fs-3"></i> <br>
-            <span class="h5 m-0">Depositar</span>
-          </a>
-          <!-- Enviar Dinero -->
-          <a href="./sendmoney.html" class="btn btn-outline-light col-md-auto m-4 ">
-            <i class="bi bi-send fs-3"></i> <br>
-            <span class="h5 m-0">Enviar Dinero</span>
-          </a>
-
-          <!-- Últimos Movimientos -->
-          <a href="./transactions.html" class="btn btn-outline-light col-md-auto m-4 ">
-            <i class="bi bi-clock-history fs-3"></i> <br>
-            <span class="h5 m-0">Transacciones</span>
-          </a>
-
-          <!-- Recargas -->
-          <a href="#" class="btn btn-outline-light col-md-auto m-4 " data-bs-toggle="tooltip"
-            data-bs-title="Próximamente">
-            <i class="bi bi-phone-vibrate fs-3"></i> <br>
-            <span class="h5 m-0">Recargas</span>
-          </a>
-          <!-- Pago de Servicios -->
-          <a href="#" class="btn btn-outline-light col-md-auto m-3" data-bs-toggle="tooltip"
-            data-bs-title="Próximamente">
-            <i class="bi bi-receipt fs-3"></i> <br>
-            <span class="h5 m-0">Pago Servicios</span>
-          </a>
-
-          <!-- Cobrar -->
-          <a href="#" class="btn btn-outline-light col-md-auto m-4 " data-bs-toggle="tooltip"
-            data-bs-title="Próximamente">
-            <i class="bi bi-qr-code-scan fs-3"></i> <br>
-            <span class="h5 m-0">Cobro QR</span>
-          </a>
-          <!-- Mis Tarjetas -->
-          <a href="#" class="btn btn-outline-light col-md-auto m-4 " data-bs-toggle="tooltip"
-            data-bs-title="Próximamente">
-            <i class="bi bi-credit-card fs-3"></i> <br>
-            <span class="h5 m-0">Mis Tarjetas</span>
-          </a>
-
-          <!-- Seguridad -->
-          <a href="#" class="btn btn-outline-light col-md-auto m-4 " data-bs-toggle="tooltip"
-            data-bs-title="Próximamente">
-            <i class="bi bi-shield-lock fs-3"></i> <br>
-            <span class="h5 m-0">Seguridad</span>
-          </a>
-
-          <!-- Soporte -->
-          <a href="#" class="btn btn-outline-light col-md-auto m-4 " data-bs-toggle="tooltip"
-            data-bs-title="Próximamente">
-            <i class="bi bi-chat-square-dots fs-3"></i> <br>
-            <span class="h5 m-0">Soporte</span>
-          </a>
+          <div class="bg-dark bg-opacity-50 px-4 py-3 rounded-3 text-center border border-secondary border-opacity-20">
+            <span class="text-light opacity-75 d-block small mb-1">Saldo disponible</span>
+            <h2 class="text-white h3 fw-bold mb-0" id="balance"></h2>
+          </div>
         </div>
 
+        <!-- BLOQUE 1: REJILLA DE OPCIONES DEL MENÚ (Corregido a Grid Nativo) -->
+        <div class="p-4 bg-dark bg-opacity-10 rounded-3 border border-light border-opacity-10">
+          <h3 class="text-white h5 fw-semibold mb-4">¿Qué deseas hacer hoy?</h3>
+          
+          <!-- Grid Responsivo: 2 columnas en móvil, 3 en tablets y 3 en pantallas grandes con separación limpia -->
+          <div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 g-3">
+            
+            <!-- Opción: Depositar (Activo) -->
+            <div class="col">
+              <a href="./deposit.html" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center">
+                <i class="bi bi-wallet2 text-success fs-2"></i>
+                <span class="fw-semibold small">Depositar</span>
+              </a>
+            </div>
+            
+            <!-- Opción: Enviar Dinero (Activo) -->
+            <div class="col">
+              <a href="./sendMoney.html" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center">
+                <i class="bi bi-send text-success fs-2"></i>
+                <span class="fw-semibold small">Enviar Dinero</span>
+              </a>
+            </div>
 
+            <!-- Opción: Transacciones (Activo) -->
+            <div class="col">
+              <a href="./transactions.html" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center">
+                <i class="bi bi-clock-history text-success fs-2"></i>
+                <span class="fw-semibold small">Transacciones</span>
+              </a>
+            </div>
 
-      </div>
+            <!-- Opción: Recargas (Próximamente) -->
+            <div class="col">
+              <a href="#" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center opacity-50" data-bs-toggle="tooltip" data-bs-title="Próximamente">
+                <i class="bi bi-phone-vibrate text-secondary fs-2"></i>
+                <span class="fw-semibold small">Recargas</span>
+              </a>
+            </div>
+
+            <!-- Opción: Pago de Servicios (Próximamente) -->
+            <div class="col">
+              <a href="#" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center opacity-50" data-bs-toggle="tooltip" data-bs-title="Próximamente">
+                <i class="bi bi-receipt text-secondary fs-2"></i>
+                <span class="fw-semibold small">Pago Servicios</span>
+              </a>
+            </div>
+
+            <!-- Opción: Cobro QR (Próximamente) -->
+            <div class="col">
+              <a href="#" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center opacity-50" data-bs-toggle="tooltip" data-bs-title="Próximamente">
+                <i class="bi bi-qr-code-scan text-secondary fs-2"></i>
+                <span class="fw-semibold small">Cobro QR</span>
+              </a>
+            </div>
+
+            <!-- Opción: Mis Tarjetas (Próximamente) -->
+            <div class="col">
+              <a href="#" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center opacity-50" data-bs-toggle="tooltip" data-bs-title="Próximamente">
+                <i class="bi bi-credit-card text-secondary fs-2"></i>
+                <span class="fw-semibold small">Mis Tarjetas</span>
+              </a>
+            </div>
+
+            <!-- Opción: Seguridad (Próximamente) -->
+            <div class="col">
+              <a href="#" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center opacity-50" data-bs-toggle="tooltip" data-bs-title="Próximamente">
+                <i class="bi bi-shield-lock text-secondary fs-2"></i>
+                <span class="fw-semibold small">Seguridad</span>
+              </a>
+            </div>
+
+            <!-- Opción: Soporte (Próximamente) -->
+            <div class="col">
+              <a href="#" class="btn btn-outline-info w-100 py-4 text-light border-secondary border-opacity-25 d-flex flex-column align-items-center gap-2 tarjeta-wallet h-100 justify-content-center opacity-50" data-bs-toggle="tooltip" data-bs-title="Próximamente">
+                <i class="bi bi-chat-square-dots text-secondary fs-2"></i>
+                <span class="fw-semibold small">Soporte</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
 
       </div>
     </section>
-
   </main>
 
 
-
-  <!-- footer -->
-  <!-- <footer class="container-fluid bottom-0 bg-black p-3 px-0">
-    <section class="footer-section bottom-0 row text-center px-5">
-
-      <ul class="footer-links col">
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-
-      <ul class="footer-rrss col">
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/facebook.png" alt="Facebook" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/twitter.png" alt="Twitter" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/linkedin.png" alt="LinkedIn" /></a></li>
-      </ul>
-
-      <ul class="footer-contact col">
-        <li><a href="#">Email:</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-
-    </section>
-  </footer> -->
-  <!-- scripts -->
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-  <!-- js propio -->
-  <script src="../assets/js/nav.js"></script>
-  <script src="../assets/js/menu.js"></script>
+<!-- Footer -->
+  <footer class="glass-effect rounded col-12 col-lg-10 mx-auto my-4 bottom-0 p-4 shadow-lg">
+    <div class="container-fluid p-0">
+      <div class="row align-items-center text-center text-md-start g-3">
+        <div class="col-12 col-md-6">
+          <h5 class="text-white fw-bold mb-1">AlkeWallet</h5>
+          <p class="text-light opacity-50 small m-0">&copy; 2026 AlkeWallet. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Términos</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Privacidad</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small">Soporte</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>

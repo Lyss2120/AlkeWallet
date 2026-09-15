@@ -9,190 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
   <link rel="stylesheet" href="../assets/css/alkewallet.css">
-
-</head>
-
-<body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-dark opacity-75">
-    <div class="container text-light">
-      <a class="navbar-brand" href="/">AlkeWallet</a>
-      <span class="navbar-text text-white" id="saludo"></span>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link home active" aria-current="page" href="../index.html">Home</a>
-          <a class="nav-link" href="menu.html">Menu</a>
-          <a class="nav-link" href="deposit.html">Deposit</a>
-          <a class="nav-link active" aria-current="page" href="sendMoney.html">Send Money</a>
-          <a class="nav-link" href="transactions.html">Transactions</a>
-          <a class="nav-link login" href="login.html">Login</a>
-          <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- main -->
-  <main class="container rounded d-grid mb-5 p-3" id="sendMoney-container">
-
-    <section class="sendMoney-section row justify-content-center glass py-3">
-      <div class="col-12 col-lg-10 ">
-        <!-- BLOQUE 0: BALANCE -->
-        <div class="d-flex justify-content-around align-items-center mb-4 p-3 border rounded bg-light bg-opacity-10">
-          <div class="p-4">
-            <h1 class="text-center text-light">Enviar Dinero</h1>
-          </div>
-          <h2 class="text-white h4 p-1 mb-0">
-            Saldo disponible : <span id="balance"></span>
-          </h2>
-        </div>
-
-        <!-- BLOQUE 1: Formulario Principal de Transferencia / Agregar nuevo contacto (Modal)-->
-        <form id="form-transferir" class="p-5 form-control needs-validation d-block bg-light bg-opacity-10 p-4">
-          <!-- Seleccionar contacto existente -->
-          <div class="d-flex justify-content-around align-items-center">
-            <h2 class="text-white h4  py-4 "> 
-              <i class="bi bi-people mx-2 h1"></i>Transferir a contacto existente
-            </h2>
-
-            <h2 class="text-white h4  py-4">
-              <button type="button" class="btn btn-outline-light rounded-pill mx-3" data-bs-toggle="modal"
-                data-bs-target="#modalNuevoContacto">
-                <i class="bi bi-person-add h2"></i>
-              </button>¿Deseas agregar un nuevo contacto?
-            </h2>
-
-
-          </div>
-
-
-          <input type="text" class="form-control mb-3" id="recipient" placeholder="Buscar contacto..." required />
-
-          <!-- Lista de contactos dinámicos -->
-          <ul class="list-group mb-4" id="lista-contactos">
-            <!-- Los contactos del localStorage se cargarán aquí -->
-            <!-- Ejemplos como respaldo visual inicial -->
-            <li class="list-group-item list-group-item-action contacto-item">John Doe - Banco ABC Bank</li>
-            <li class="list-group-item list-group-item-action contacto-item">Jane Smith - Banco XYZ Bank</li>
-          </ul>
-
-          <!-- Monto a transferir  -->
-          <div class="input-group mb-3">
-            <!-- <label for="monto-transferir" class="form-label text-white h4">Monto a transferir:</label> -->
-            <input type="number" id="monto-transferir" class="form-control" aria-label="Recipient’s username"
-              aria-describedby="button-addon2" placeholder="Monto en CLP" required>
-            <!-- Botón submit para transferir dinero -->
-            <button type="submit" id="button-addon2" class=" btn btn-light text-light-emphasis ">
-              Transferir
-            </button>
-          </div>
-
-
-
-          <!-- Botón para volver al menú -->
-          <button type="button" class="btn btn-outline-light  w-100 my-3">
-            <a href="menu.html" class="text-decoration-none text-light d-block h4 p-2">Volver al Menu</a>
-          </button>
-        </form>
-
-      </div>
-    </section>
-
-
-
-
-    <!-- ========================================== -->
-    <!-- MODAL DE BOOTSTRAP (AGREGAR NUEVO CONTACTO) -->
-    <!-- ========================================== -->
-    <div class="modal fade" id="modalNuevoContacto" tabindex="-1" aria-labelledby="modalContactoLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-dark">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalContactoLabel">Registrar Nuevo Contacto</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form id="form-modal-contacto">
-            <div class="modal-body">
-
-              <div class="mb-3">
-                <label for="reg-nombre" class="form-label">Nombre Completo</label>
-                <input type="text" id="reg-nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
-              </div>
-
-              <div class="mb-3">
-                <label for="reg-rut" class="form-label">RUT</label>
-                <input type="text" id="reg-rut" class="form-control" id="rut" title="Formato RUT"
-                  pattern="^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$" placeholder="12.345.678-K" required>
-              </div>
-
-              <div class="mb-3">
-                <label for="reg-banco" class="form-label">Banco</label>
-                <select id="reg-banco" class="form-select" required>
-                  <option value="" selected disabled>Selecciona un banco</option>
-                  <option value="Banco de Chile">Banco de Chile</option>
-                  <option value="Banco Estado">Banco Estado</option>
-                  <option value="Banco Santander">Banco Santander</option>
-                  <option value="BCI">BCI</option>
-                  <option value="Scotiabank">Scotiabank</option>
-                  <option value="Mach / Cuenta RUT">Mach / Cuenta RUT</option>
-                </select>
-              </div>
-
-              <div class="mb-3">
-                <label for="reg-tipo" class="form-label">Tipo de Cuenta</label>
-                <select id="reg-tipo" class="form-select" required>
-                  <option value="Cuenta Corriente">Cuenta Corriente</option>
-                  <option value="Cuenta Vista / RUT">Cuenta Vista / RUT</option>
-                  <option value="Cuenta de Ahorro">Cuenta de Ahorro</option>
-                </select>
-              </div>
-
-              <div class="mb-3">
-                <label for="reg-cuenta" class="form-label">Número de Cuenta</label>
-                <input type="number" id="reg-cuenta" class="form-control" placeholder="Ej. 123456789" required>
-              </div>
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-success">Guardar Contacto</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </main>
-  <!-- footer -->
-  <!-- <footer class="container-fluid  bg-black p-3 px-0">
-    <section class="footer-section bottom-0 row text-center px-5">
-
-      <ul class="footer-links col">
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-
-      <ul class="footer-rrss col">
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/facebook.png" alt="Facebook" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/twitter.png" alt="Twitter" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/linkedin.png" alt="LinkedIn" /></a></li>
-      </ul>
-
-      <ul class="footer-contact col">
-        <li><a href="#">Email:</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-
-    </section>
-  </footer> -->
-
   <!-- scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -200,6 +17,202 @@
   <!-- js propio -->
   <script src="../assets/js/nav.js"></script>
   <script src="../assets/js/sendMoney.js"></script>
+</head>
+
+<body>
+  <!-- NAV BAR (Estilo moderno, translúcido y unificado) -->
+  <nav class="navbar navbar-expand-lg navbar-dark glass-effect rounded col-12 col-lg-10 mx-auto my-3 px-3 shadow-lg">
+    <div class="container-fluid">
+      <!-- Logo / Marca de la app -->
+      <a class="navbar-brand fw-bold fs-4 text-light tracking-tight d-flex align-items-center gap-2"
+        href="../index.html">
+        <span>Alkewallet</span>
+      </a>
+      <span class="navbar-text text-success fw-semibold ms-2" id="saludo"></span>
+
+      <!-- Botón responsive para móviles -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav align-items-center gap-2 mt-3 mt-lg-0">
+          <a class="nav-link text-light opacity-75" href="../index.html">Inicio</a>
+          <a class="nav-link text-light opacity-75" href="menu.html">Menú</a>
+          <a class="nav-link text-light opacity-75" href="deposit.html">Depositar</a>
+          <a class="nav-link active fw-bold text-success" aria-current="page" href="sendMoney.html">Enviar Dinero</a>
+          <a class="nav-link text-light opacity-75" href="transactions.html">Transacciones</a>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-sm btn-outline-light rounded-pill px-4 fw-semibold" href="login.html">Ingresar</a>
+          </li>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN (Layout Transparente para Transferencias) -->
+  <main class="container col-12 col-lg-8 my-5 p-0" id="sendMoney-container">
+    <section class="sendMoney-section row justify-content-center glass-effect rounded p-4 m-0 shadow-lg">
+      <div class="col-12">
+
+        <!-- BLOQUE 0: BALANCE (Integrado estéticamente) -->
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 p-4 rounded-3 bg-dark bg-opacity-25 border border-light border-opacity-10 gap-3">
+          <div class="text-center text-md-start">
+            <h1 class="text-light h2 fw-bold mb-0">Enviar Dinero</h1>
+            <p class="text-success opacity-75 small mb-0">Transferencias rápidas e interbancarias</p>
+          </div>
+          <div class="bg-dark bg-opacity-50 px-4 py-3 rounded-3 text-center border border-secondary border-opacity-20">
+            <span class="text-light opacity-75 d-block small mb-1">Saldo disponible</span>
+            <h2 class="text-white h3 fw-bold mb-0" id="balance">$0</h2>
+          </div>
+        </div>
+
+        <!-- BLOQUE 1: Formulario Principal de Transferencia (Se eliminó form-control) -->
+        <form id="form-transferir" class="p-4 bg-dark bg-opacity-10 rounded-3 border border-light border-opacity-10">
+
+          <!-- Encabezado de sección + Botón agregar contacto -->
+          <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-4 gap-3">
+            <h2 class="text-white h5 m-0 d-flex align-items-center gap-2">
+              <i class="bi bi-people text-success fs-4"></i> Transferir a contacto existente
+            </h2>
+            <button type="button"
+              class="btn btn-sm btn-outline-success rounded-pill px-3 d-flex align-items-center gap-2 fw-semibold text-white"
+              data-bs-toggle="modal" data-bs-target="#modalNuevoContacto">
+              <i class="bi bi-person-add fs-5"></i> Agregar Nuevo
+            </button>
+          </div>
+
+          <!-- Buscador de contactos -->
+          <div class="mb-3">
+            <input type="text" class="form-control bg-dark bg-opacity-50 text-white border-secondary" id="recipient"
+              placeholder="🔎 Buscar contacto por nombre..." required />
+          </div>
+
+          <!-- Lista de contactos dinámicos -->
+          <ul class="list-group mb-4 shadow-sm" id="lista-contactos">
+            <!-- Los contactos se inyectan dinámicamente con estilos oscuros -->
+            <li
+              class="list-group-item list-group-item-action bg-dark bg-opacity-50 text-light border-secondary border-opacity-20">
+              John Doe - Banco ABC Bank</li>
+            <li
+              class="list-group-item list-group-item-action bg-dark bg-opacity-50 text-light border-secondary border-opacity-20">
+              Jane Smith - Banco XYZ Bank</li>
+          </ul>
+
+          <!-- Monto a transferir -->
+          <label for="monto-transferir" class="form-label text-light opacity-90 h5 mb-2">Monto a transferir</label>
+          <div class="input-group mb-4 shadow-sm">
+            <input type="number" id="monto-transferir"
+              class="form-control bg-dark bg-opacity-50 text-white border-secondary"
+              placeholder="Monto en CLP (Ej: 10000)" required>
+            <button type="submit" id="button-addon2" class="btn btn-success px-4 fw-semibold">
+              Transferir <i class="bi bi-send-fill ms-1"></i>
+            </button>
+          </div>
+
+          <!-- Botón para volver al menú -->
+          <a href="menu.html" class="btn btn-outline-light w-100 rounded-pill py-2 fw-semibold text-decoration-none">
+            Volver al Menú
+          </a>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- MODAL DE BOOTSTRAP ADAPTADO A ESTILO DARK  -->
+    <!-- ========================================== -->
+    <div class="modal fade" id="modalNuevoContacto" tabindex="-1" aria-labelledby="modalContactoLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <!-- Aplicamos un estilo oscuro al modal para que combine con el resto de la interfaz -->
+        <div class="modal-content bg-dark text-light border border-light border-opacity-10 shadow-lg"
+          style="backdrop-filter: blur(15px);">
+          <div class="modal-header border-secondary border-opacity-30">
+            <h5 class="modal-title fw-bold text-success" id="modalContactoLabel">Registrar Nuevo Contacto</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="form-modal-contacto">
+            <div class="modal-body">
+
+              <div class="mb-3">
+                <label for="reg-nombre" class="form-label text-light opacity-75 small fw-semibold">Nombre
+                  Completo</label>
+                <input type="text" id="reg-nombre"
+                  class="form-control bg-dark bg-opacity-50 text-white border-secondary" placeholder="Ej. Juan Pérez"
+                  required>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-rut" class="form-label text-light opacity-75 small fw-semibold">RUT</label>
+                <input type="text" id="reg-rut" class="form-control bg-dark bg-opacity-50 text-white border-secondary"
+                  title="Formato RUT" pattern="^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$" placeholder="12.345.678-K"
+                  required>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-banco" class="form-label text-light opacity-75 small fw-semibold">Banco</label>
+                <select id="reg-banco" class="form-select bg-dark bg-opacity-50 text-white border-secondary" required>
+                  <option value="" selected disabled class="bg-dark">Selecciona un banco</option>
+                  <option value="Banco de Chile" class="bg-dark">Banco de Chile</option>
+                  <option value="Banco Estado" class="bg-dark">Banco Estado</option>
+                  <option value="Banco Santander" class="bg-dark">Banco Santander</option>
+                  <option value="BCI" class="bg-dark">BCI</option>
+                  <option value="Scotiabank" class="bg-dark">Scotiabank</option>
+                  <option value="Mach / Cuenta RUT" class="bg-dark">Mach / Cuenta RUT</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-tipo" class="form-label text-light opacity-75 small fw-semibold">Tipo de Cuenta</label>
+                <select id="reg-tipo" class="form-select bg-dark bg-opacity-50 text-white border-secondary" required>
+                  <option value="Cuenta Corriente" class="bg-dark">Cuenta Corriente</option>
+                  <option value="Cuenta Vista / RUT" class="bg-dark">Cuenta Vista / RUT</option>
+                  <option value="Cuenta de Ahorro" class="bg-dark">Cuenta de Ahorro</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="reg-cuenta" class="form-label text-light opacity-75 small fw-semibold">Número de
+                  Cuenta</label>
+                <input type="number" id="reg-cuenta"
+                  class="form-control bg-dark bg-opacity-50 text-white border-secondary" placeholder="Ej. 123456789"
+                  required>
+              </div>
+
+            </div>
+            <div class="modal-footer border-secondary border-opacity-30">
+              <button type="button" class="btn btn-sm btn-outline-light rounded-pill px-3"
+                data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-sm btn-success rounded-pill px-4 fw-semibold">Guardar
+                Contacto</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER (Estilo flotante cristalizado coincidente con el login) -->
+  <footer class="glass-effect rounded col-12 col-lg-10 mx-auto my-4 py-4 bottom-0 px-4 shadow-lg">
+    <div class="container-fluid p-0">
+      <div class="row align-items-center text-center text-md-start g-3">
+        <div class="col-12 col-md-6">
+          <h5 class="text-white fw-bold mb-1">AlkeWallet</h5>
+          <p class="text-light opacity-50 small m-0">&copy; 2026 AlkeWallet. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Términos</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Privacidad</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small">Soporte</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>

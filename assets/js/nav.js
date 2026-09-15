@@ -9,14 +9,14 @@ const saludo = document.querySelector("#saludo");
 if (currentUser) {
     saludo.textContent = `Bienvenido ${currentUser.nombre}`;
 }
-(() => {
-    const nav = document.querySelector('nav');
+// (() => {
+//     const nav = document.querySelector('nav');
 
-    if (nav) {
-        nav.classList.remove('bg-dark');
-        nav.classList.add('glass', 'text-white');
-    }
-})();
+//     if (nav) {
+//         nav.classList.remove('bg-dark');
+//         nav.classList.add('glass', 'text-white');
+//     }
+//})();
 
 // switch login logout
 if (currentUser) {
