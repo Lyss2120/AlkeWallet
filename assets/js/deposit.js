@@ -48,7 +48,7 @@
             date: new Date().toLocaleDateString("es-CL") // Guarda formato limpio dd-mm-aaaa
         };
         currentUser.balance += monto;
-        currentUser.transactions = [...currentUser.transactions, nuevaTransaccion];
+        currentUser.transactions = [nuevaTransaccion,...currentUser.transactions];
 
         // actualizar el saldo de curentUser en localStorage
         localStorage.setItem("currentUser", JSON.stringify(currentUser));

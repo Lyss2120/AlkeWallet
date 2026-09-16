@@ -1,14 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
-/* 
-body {
-  background-color: #9292f8;
-  background-image: linear-gradient(45deg, #13829d, #2e3eb9, #740bb6);
-  background-size: 100% 1cqi;
-  color: #ffffff79 !important;
-  font:
-    400 1rem/1.5rem "Roboto",
-    sans-serif;
-} */
+
 
 /* Variables Globales */
 :root {
@@ -70,7 +61,6 @@ body {
 }
 
 /* ── Animaciones de Flotación Líquida (Keyframes) ── */
-/* 
 @keyframes flotarOrbeUno {
   0% {
     transform: translate(0px, 0px) scale(1);
@@ -105,7 +95,7 @@ body {
   100% {
     transform: translate(-70px, -30px) scale(0.95);
   }
-} */
+} 
 
 /* Glassmorphism */
 .glass-effect {
@@ -114,11 +104,11 @@ body {
     linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5) 100%),
     rgba(0, 0, 0, 0.45) !important; /* Base negra translúcida que oscurece el fondo */
   
-  /* Esmerilado de alta definición para difuminar los orbes de fondo */
+  /* difuminar los orbes de fondo */
   backdrop-filter: blur(25px) saturate(140%) !important;
   -webkit-backdrop-filter: blur(25px) saturate(140%) !important;
   
-  /* Borde de cristal: simula el canto pulido e iluminado */
+  /* Borde de cristal */
   border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
   border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
   border-right: 1px solid rgba(0, 0, 0, 0.4) !important;
@@ -152,6 +142,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
+/* Efecto de color hover para tarjetas internas de testimonios */
 .testimonios .card:hover {
   background: 
     linear-gradient(135deg, rgba(254, 254, 254, 0.12) 0%, rgba(62, 154, 8, 0.2) 40%, rgba(139, 14, 223, 0.824) 100%),
@@ -163,7 +154,6 @@ body {
     inset 0 1px 0 0 rgba(255, 255, 255, 0.25) !important;
 }
 
-/* Ajustes de contraste para los botones sobre el Glass */
 .text-success {
   color: var(--turquesa) !important;
 }
@@ -177,67 +167,10 @@ body {
   min-height: 70vh; 
 }
 .hero-background .navbar {
-  background: var(--fondo-oscuro)!important;
-  opacity: 0.85;
-    backdrop-filter: blur(25px) saturate(140%) !important;
+  background: transparent !important;
+  opacity: 0.7;
+    backdrop-filter: blur(5px) saturate(140%) !important;
   -webkit-backdrop-filter: blur(25px) saturate(140%) !important;
 
 }
-/* 
-.hero-section{
-  background-image: linear-gradient(45deg, #13819de0, #2e3eb98d, #740bb68a);
-   z-index: 1;
-   backdrop-filter: blur(5px);
-
-}
-.hero-heading {
-  font-size: 3.5rem !important;
-  font-weight: semibold !important;
- 
-}
-.hero-image {
-  width: 18rem;
-}
-
-.glass {
-  /* opacity: 0.8; 
-  backdrop-filter: blur(45px);
-  background-color: #1c1a1e90;
-  border-radius: 10px;
-  color: #ffffff;
-  backdrop-filter: blur(5px);
-}
-.navbar-brand {
-  color: #6d30dd !important;
-  font-size: 1.6rem;
-  font-weight: 500;
-}
-.navbar .nav-link {
-  color: #ffffff !important;
-  font-size: 1.2rem;
-}
-
-@keyframes moveBackground {
-  from {
-    background-position: 30% 100%;
-  }
-  to {
-    background-position: 50% 10%;
-  }
-}
-@keyframes bg-animation {
-  0% {
-    background-position: 50% 50%;
-  }
-  50%{
-    background-position: 70% 20%;
-  }
-  100% {
-    background-position: 10% 70%;
-  }
-} */
-.list {
-  background-color: #1c1a1e00;
-  color: #ffffff;
-  font-size: 1.3rem;
-}
+  

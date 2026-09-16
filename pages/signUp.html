@@ -54,59 +54,93 @@
     <h1 class="text-center">Crear Cuenta</h1>
   </header>
   <!-- main -->
-  <main class="container rounded d-grid mb-5" id="signUp-container">
-    <!-- background drops -->
-    <section class="signUp-section row justify-content-center">
-      <div class="col-12 col-sm-10 col-md-8">
-        <!-- formulario de signUp -->
-        <form class="form-control" id="signUpForm">
-                      <div class="mb-3 form-group ">
-            <label for="email" class="form-label">Nombre </label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required />
-          </div>
-          <div class="mb-3 form-group ">
-            <label for="email" class="form-label">Email </label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu email" required />
-          </div>
-          <div class="mb-3 form-group ">
-            <label for="password" class="form-label">password</label>
-            <input type="password" class="form-control" id="password" name="password"
-              placeholder="Ingresa tu contraseña" required />
+<!-- MAIN (Estructura espejo del login-container) -->
+  <main class="container col-12 col-lg-6 my-5 p-0" id="signup-container">
+    <section class="signup-section row justify-content-center glass-effect rounded p-4 m-0 shadow-lg">
+      <div class="col-12">
+
+        <!-- BLOQUE: HEADER -->
+        <div class="text-center my-4">
+          <h1 class="text-light display-5 fw-bold">Crear Cuenta</h1>
+          <p class="text-success opacity-75">Únete y gestiona tus finanzas de forma inteligente</p>
+        </div>
+
+        <!-- Formulario de Registro -->
+        <form id="signUpForm"
+          class="p-4 needs-validation bg-dark bg-opacity-25 rounded-3 border border-light border-opacity-10">
+
+          <!-- Campo: Nombre Completo -->
+          <div class="mb-4">
+            <label for="name" class="form-label h5 text-light opacity-90">Nombre Completo</label>
+            <input type="text" class="form-control bg-dark bg-opacity-50 text-white border-secondary" id="nombre"
+              name="name" placeholder="Ej. Juan Pérez" required />
           </div>
 
+          <!-- Campo: Email -->
+          <div class="mb-4">
+            <label for="email" class="form-label h5 text-light opacity-90">Email</label>
+            <input type="email" class="form-control bg-dark bg-opacity-50 text-white border-secondary" id="email"
+              name="email" placeholder="nombre@ejemplo.com" required />
+          </div>
 
-          <!-- Botón de sign up Principal y redirección a index -->
-          <button type="submit" value="Login" class="btn btn-primary form-control mb-3">
-            Crear
+          <!-- Campo: Contraseña -->
+          <div class="mb-4">
+            <label for="password" class="form-label h5 text-light opacity-90">Contraseña</label>
+            <input type="password" class="form-control bg-dark bg-opacity-50 text-white border-secondary" id="password"
+              name="password" placeholder="Crea una contraseña segura" required />
+          </div>
+
+          <!-- Checkbox: Términos y Condiciones -->
+          <div class="mb-4 form-check d-flex align-items-center gap-2">
+            <input type="checkbox" class="form-check-input m-0" name="terminos" id="checkbox-terminos" required />
+            <label class="form-check-label h6 text-light opacity-75 m-0" for="checkbox-terminos">
+              Acepto los <a href="#" class="text-success text-decoration-none">Términos de servicio</a>
+            </label>
+          </div>
+
+          <!-- Botón de Registro Principal -->
+          <button type="submit" class="btn btn-lg btn-light w-100 fw-semibold rounded-pill my-2 shadow-sm">
+            Registrarse
           </button>
+
+          <!-- Divisor visual -->
+          <div class="text-center my-4 position-relative">
+            <hr class="text-light opacity-25" />
+            <span
+              class="position-absolute top-50 start-50 translate-middle bg-dark px-3 text-light opacity-50 small rounded">o</span>
+          </div>
+
+          <!-- Enlace para volver a Iniciar Sesión -->
+          <div class="text-center">
+            <p class="text-light opacity-75 m-0">
+              ¿Ya tienes una cuenta?
+              <a href="login.html"
+                class="text-success fw-semibold text-decoration-none border-bottom border-success">Inicia sesión aquí</a>
+            </p>
+          </div>
+
         </form>
+
       </div>
     </section>
   </main>
 
-  <!-- footer -->
-  <!-- <footer class="container-fluid  bottom-0 bg-black p-3 px-0">
-    <section class=" bottom-0 row text-center px-5">
-
-      <ul class="footer-links col">
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-
-      <ul class="footer-rrss col">
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/facebook.png" alt="Facebook" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/twitter.png" alt="Twitter" /></a></li>
-        <li><a href="#"><img src="../assets/img/icons/262507/ICO/512/linkedin.png" alt="LinkedIn" /></a></li>
-      </ul>
-
-      <ul class="footer-contact col">
-        <li><a href="#">Email:</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-
-    </section>
-  </footer> -->
+  <!-- FOOTER -->
+  <footer class="glass-effect rounded col-12 col-lg-11 mx-auto my-4 py-4 px-4 bottom-0 shadow-lg">
+    <div class="container-fluid p-0">
+      <div class="row align-items-center text-center text-md-start g-3">
+        <div class="col-12 col-md-6">
+          <h5 class="text-white fw-bold mb-1">AlkeWallet</h5>
+          <p class="text-light opacity-50 small m-0">&copy; 2026 AlkeWallet. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Términos</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small me-3">Privacidad</a>
+          <a href="#" class="text-light opacity-75 text-hover-success text-decoration-none small">Soporte</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
 </body>

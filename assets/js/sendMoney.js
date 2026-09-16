@@ -22,12 +22,13 @@
             { nombre: "Jane Smith", rut: "22.222.222-2", banco: "Banco XYZ", tipo: "Vista", cuenta: "987654" }
         ];
 
-        
+
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
     const saldoActual = currentUser.balance ? currentUser.balance : '0';
-    console.log(saldoActual.toLocaleString("es-CL"))
-    // mostrar saldo cuenta balnac.toLocaleString("es-CL") 
+
+
+    // Mostrar saldo cuenta en formato CLP
     balanceSpan.textContent = saldoActual.toLocaleString("es-CL")
 
 
@@ -43,7 +44,7 @@
 
         contactosAEditar.forEach(contacto => {
             const li = document.createElement("li");
-            li.className = "list-group-item list-group-item-action d-flex justify-content-between align-items-center";
+            li.className = "list-group-item list-group-item-action bg-dark bg-opacity-50 text-light border-secondary border-opacity-20  text-capitalize";
             li.style.cursor = "pointer";
 
             li.innerHTML = `
@@ -54,9 +55,9 @@
                 </div>
             `;
 
-            // Al hacer clic, se selecciona el contacto y limpiamos el filtro visual volviendo a mostrar todos
+            // Al hacer clic, se selecciona el contacto y se muestra junto a su rut entre paréntesis
             li.addEventListener("click", () => {
-                inputRecipient.value = `${contacto.nombre} (${contacto.rut})`;
+                inputRecipient.value = `${contacto.nombre} ${contacto.rut}`;
                 renderContactos(currentUser.contactos);
             });
 
@@ -102,6 +103,7 @@
 
         currentUser.contactos.push(nuevoContacto);
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        console.log(currentUser.contactos)
 
         const users = JSON.parse(localStorage.getItem("users")) || [];
         const userIndex = users.findIndex(user => user.email === currentUser.email);
@@ -143,7 +145,20 @@
             return;
         }
 
+        const contactoDestino = currentUser.contactos.find(contacto =>
+            destinatario.includes(contacto.rut)
+        );
+
+        const nuevaTransaccion = {
+            type: "transferencia",
+            amount: -monto,
+            from: `Hacia ${contactoDestino.nombre}  ${contactoDestino.banco}`, // Datos del destinatario
+            date: new Date().toLocaleDateString("es-CL") // Fecha dd-mm-aaaa
+        };
         currentUser.balance -= monto;
+        currentUser.transactions = [nuevaTransaccion, ...currentUser.transactions];
+
+        // currentUser.balance -= monto;
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
         const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -151,27 +166,12 @@
         if (userIndex !== -1) {
             users[userIndex].balance = currentUser.balance;
             localStorage.setItem("users", JSON.stringify(users));
-        }
+        } //Actualiza currentUser en lista de usuarios de localStorage
 
         alert(`¡Transferencia exitosa de $${monto} a ${destinatario}!`);
         location.href = "menu.html";
     });
 })();
 
-// probar y modificar para dar formato al rut
-// formatRut: (rut) => {
-//     // XX.XXX.XXX-X
-//     const newRut = rut.splice(-1, 0, '-');
-//     const lastDigit = newRut.substr(-1, 1);
-//     const rutDigit = newRut.substr(0, newRut.length - 1)
-//     let format = '';
-//     for (let i = rutDigit.length; i > 0; i--) {
-//         const e = rutDigit.charAt(i - 1);
-//         format = e.concat(format);
-//         if (i % 3 === 0) {
-//             format = '.'.concat(format);
-//         }
-//     }
-//     return format.concat('-').concat(lastDigit);
-// }
-// console.log(currentUser);
+// Proxima iteracion: validar y dar formato al rut
+
