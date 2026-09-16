@@ -61,7 +61,7 @@ body {
 }
 
 /* ── Animaciones de Flotación Líquida (Keyframes) ── */
-@keyframes flotarOrbeUno {
+/* @keyframes flotarOrbeUno {
   0% {
     transform: translate(0px, 0px) scale(1);
   }
@@ -96,7 +96,7 @@ body {
     transform: translate(-70px, -30px) scale(0.95);
   }
 } 
-
+ */
 /* Glassmorphism */
 .glass-effect {
   /* Doble fondo: Capa 1 es el reflejo de luz diagonal (blanco sutil); Capa 2 es la base polarizada oscura (negra) */
@@ -159,7 +159,7 @@ body {
 }
 
 .hero-background {
-  background: linear-gradient(rgba(65, 9, 114, 0.6), rgba(7, 2, 86, 0.6)), 
+  background: linear-gradient(rgba(62, 15, 162, 0.6), rgba(8, 13, 164, 0.6)), 
               url('../img/pexels-spoton-pos-2160258094-37594378.jpg');
   background-size: cover;
   background-position: center;
@@ -168,9 +168,5 @@ body {
 }
 .hero-background .navbar {
   background: transparent !important;
-  opacity: 0.7;
-    backdrop-filter: blur(5px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(25px) saturate(140%) !important;
-
+  opacity: 0.90
 }
-  
