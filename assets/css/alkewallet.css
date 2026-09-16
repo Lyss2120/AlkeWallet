@@ -8,6 +8,11 @@
   --purpura-acento: #9d4edd;
   --fondo-oscuro: #4815a8;
   --fondo-tarjeta: #711ae226;
+  
+}
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
 /* Fondo global */
@@ -15,7 +20,7 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: var(--fondo-oscuro);
   position: relative;
-  overflow-x: hidden; /* Evita scrolls raros por el tamaño de los orbes */
+  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -166,7 +171,4 @@ body {
   background-repeat: no-repeat;
   min-height: 70vh; 
 }
-.hero-background .navbar {
-  background: transparent !important;
-  opacity: 0.90
-}
+

@@ -35,6 +35,8 @@ Este proyecto destaca por una interfaz oscura premium con una arquitectura de di
 - **Bootstrap 5:** Framework de diseño para maquetación ágil, componentes modales, utilidades de espaciado y tipografía responsiva.
 - **Bootstrap Icons:** Librería de íconos vectoriales para enriquecer la semántica visual del menú y los formularios.
 - **JavaScript (ES6+):** Programación modular auto-ejutable (IIFE), manipulación dinámica del DOM, captura de eventos y gestión de persistencia de datos.
+- **Jquery 4.0:** Interactividad efectos en la pagina de inicio.
+
 
 ---
 
