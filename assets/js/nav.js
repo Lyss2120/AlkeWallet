@@ -14,8 +14,7 @@ if (currentUser) {
     // SI EL USUARIO EXISTE: Transforma el botón de Login en uno de Logout
     navLinkLogin.style.display = "block"; // Asegura que sea visible
     navLinkLogin.textContent = "Logout";
-    navLinkLogin.classList.remove("text-success")
-    navLinkLogin.classList.add("text-secondary")
+    navLinkLogin.className="btn btn-outline-light rounded-pill px-3 fw-semibold text-light opacity-75";
 
     // Agrega el evento para cerrar sesión
     navLinkLogin.addEventListener("click", (e) => {
@@ -32,6 +31,7 @@ if (currentUser) {
 } else {
     // SI NO HAY USUARIO: Muestra el botón normal para ir a iniciar sesión
     navLinkLogin.style.display = "block";
+    navLinkLogin.classList.add("btn btn-outline-success rounded-pill px-3 fw-semibold text-success opacity-75")
     navLinkLogin.textContent = "Ingresar";
     // inhabilita los links de menu, deposit, sendMoney y transactions
     navLinks.forEach(link => {
@@ -49,6 +49,6 @@ const paginaActual = window.location.pathname.split("/").pop();
   $(".navbar-nav .nav-link").each(function () {
     const enlace = $(this).attr("href").split("/").pop();
     if (enlace === paginaActual) {
-      $(this).addClass("active fw-bold text-success").removeClass("opacity-75 text-light");
+      $(this).addClass("active fw-bold text-success").removeClass("text-light opacity-75");
     }
   });

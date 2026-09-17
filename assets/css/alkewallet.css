@@ -172,3 +172,16 @@ body {
   min-height: 70vh; 
 }
 
+/* .hero-heading h1, 
+.hero-heading .text-light {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 
+                 -1px -1px 0px rgba(0, 0, 0, 0.4);
+} */
+/* Aplicará la sombra al título principal H1 y a los subtítulos */
+.hero-heading h1, 
+.hero-subheading {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 
+                 -1px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+
